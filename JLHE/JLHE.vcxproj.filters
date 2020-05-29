@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="JLHE">
+      <UniqueIdentifier>{68F0867C-5427-880D-FD13-6E10E929040F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Core.h" />
+    <ClInclude Include="src\JLHE.h" />
+    <ClInclude Include="src\JLHE\Application.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\EntryPoint.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\jlhepch.h" />
+    <ClInclude Include="src\JLHE\Log.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\JLHE\Application.cpp">
+      <Filter>JLHE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\jlhepch.cpp" />
+    <ClCompile Include="src\JLHE\Log.cpp" />
+  </ItemGroup>
+</Project>
