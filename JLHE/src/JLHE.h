@@ -3,6 +3,7 @@
 // FOR USE BY JLHE APPLICATIONS :
 
 #include "JLHE/Application.h"
+#include "JLHE/Layer.h"
 #include "JLHE/Log.h"
 
 

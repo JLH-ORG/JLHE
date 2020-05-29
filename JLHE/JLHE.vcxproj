@@ -135,11 +135,15 @@
     <ClInclude Include="src\JLHE.h" />
     <ClInclude Include="src\JLHE\Application.h" />
     <ClInclude Include="src\JLHE\EntryPoint.h" />
+    <ClInclude Include="src\JLHE\Layer.h" />
+    <ClInclude Include="src\JLHE\LayerStack.h" />
     <ClInclude Include="src\JLHE\Log.h" />
     <ClInclude Include="src\jlhepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp" />
+    <ClCompile Include="src\JLHE\Layer.cpp" />
+    <ClCompile Include="src\JLHE\LayerStack.cpp" />
     <ClCompile Include="src\JLHE\Log.cpp" />
     <ClCompile Include="src\jlhepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

@@ -18,6 +18,8 @@
       <Filter>JLHE</Filter>
     </ClInclude>
     <ClInclude Include="src\jlhepch.h" />
+    <ClInclude Include="src\JLHE\Layer.h" />
+    <ClInclude Include="src\JLHE\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
@@ -27,5 +29,7 @@
       <Filter>JLHE</Filter>
     </ClCompile>
     <ClCompile Include="src\jlhepch.cpp" />
+    <ClCompile Include="src\JLHE\LayerStack.cpp" />
+    <ClCompile Include="src\JLHE\Layer.cpp" />
   </ItemGroup>
 </Project>
