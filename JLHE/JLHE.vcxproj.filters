@@ -14,14 +14,18 @@
     <ClInclude Include="src\JLHE\EntryPoint.h">
       <Filter>JLHE</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Log.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
     <ClInclude Include="src\jlhepch.h" />
-    <ClInclude Include="src\JLHE\Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
       <Filter>JLHE</Filter>
     </ClCompile>
+    <ClCompile Include="src\JLHE\Log.cpp">
+      <Filter>JLHE</Filter>
+    </ClCompile>
     <ClCompile Include="src\jlhepch.cpp" />
-    <ClCompile Include="src\JLHE\Log.cpp" />
   </ItemGroup>
 </Project>

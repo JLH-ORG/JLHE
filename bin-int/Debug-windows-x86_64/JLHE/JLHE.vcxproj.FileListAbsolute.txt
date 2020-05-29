@@ -1,0 +1,2 @@
+D:\Projects\JLHE\JLHE\bin\Debug-windows-x86_64\JLHE\JLHE.pdb
+D:\Projects\JLHE\JLHE\bin-int\Debug-windows-x86_64\JLHE\JLHE.pdb

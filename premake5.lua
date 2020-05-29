@@ -12,6 +12,9 @@ workspace "JLHE"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
+IncludeDir["GLFW"] = "JLHE/vendor/GLFW/include"
+
+include "JLHE/vendor/GLFW"
 
 project "JLHE"
 	location "JLHE"
@@ -37,7 +40,13 @@ project "JLHE"
 
 	includedirs {
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+	
+	links
+	{
+		"GLFW"
 	}
 
 	filter "system:windows"
