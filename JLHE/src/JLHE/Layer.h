@@ -1,6 +1,6 @@
 #pragma once
 #include "Core.h"
-#include "JLHE/Event.h"
+#include "events/Event.h"
 
 //TEMP
 #include <string>

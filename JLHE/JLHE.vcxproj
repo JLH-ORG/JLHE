@@ -135,6 +135,10 @@
     <ClInclude Include="src\JLHE.h" />
     <ClInclude Include="src\JLHE\Application.h" />
     <ClInclude Include="src\JLHE\EntryPoint.h" />
+    <ClInclude Include="src\JLHE\events\ApplicatonEvent.h" />
+    <ClInclude Include="src\JLHE\events\Event.h" />
+    <ClInclude Include="src\JLHE\events\KeyEvent.h" />
+    <ClInclude Include="src\JLHE\events\MouseEvent.h" />
     <ClInclude Include="src\JLHE\Layer.h" />
     <ClInclude Include="src\JLHE\LayerStack.h" />
     <ClInclude Include="src\JLHE\Log.h" />

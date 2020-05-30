@@ -20,6 +20,10 @@
     <ClInclude Include="src\jlhepch.h" />
     <ClInclude Include="src\JLHE\Layer.h" />
     <ClInclude Include="src\JLHE\LayerStack.h" />
+    <ClInclude Include="src\JLHE\events\ApplicatonEvent.h" />
+    <ClInclude Include="src\JLHE\events\Event.h" />
+    <ClInclude Include="src\JLHE\events\KeyEvent.h" />
+    <ClInclude Include="src\JLHE\events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">

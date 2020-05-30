@@ -11,3 +11,5 @@
 	#define JLHE_ASSERT(x, ...)
 	#define JLHE_CORE_ASSERT(x, ...)
 #endif
+
+#define BIT(x) (1 << x)
