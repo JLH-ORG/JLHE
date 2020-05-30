@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>jlhepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;JLHE_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;JLHE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\imgui;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -97,7 +97,7 @@
       <PrecompiledHeaderFile>jlhepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;JLHE_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;JHLE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\imgui;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -121,7 +121,7 @@
       <PrecompiledHeaderFile>jlhepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;JLHE_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;JLHE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\imgui;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -144,19 +144,22 @@
     <ClInclude Include="src\JLHE\Application.h" />
     <ClInclude Include="src\JLHE\Core.h" />
     <ClInclude Include="src\JLHE\EntryPoint.h" />
-    <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h" />
-    <ClInclude Include="src\JLHE\Events\Event.h" />
-    <ClInclude Include="src\JLHE\Events\KeyEvent.h" />
-    <ClInclude Include="src\JLHE\Events\MouseEvent.h" />
+    <ClInclude Include="src\JLHE\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\JLHE\Layer.h" />
     <ClInclude Include="src\JLHE\LayerStack.h" />
     <ClInclude Include="src\JLHE\Log.h" />
     <ClInclude Include="src\JLHE\Window.h" />
+    <ClInclude Include="src\JLHE\events\ApplicatonEvent.h" />
+    <ClInclude Include="src\JLHE\events\Event.h" />
+    <ClInclude Include="src\JLHE\events\KeyEvent.h" />
+    <ClInclude Include="src\JLHE\events\MouseEvent.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\jlhepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp" />
+    <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\JLHE\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\JLHE\Layer.cpp" />
     <ClCompile Include="src\JLHE\LayerStack.cpp" />
     <ClCompile Include="src\JLHE\Log.cpp" />

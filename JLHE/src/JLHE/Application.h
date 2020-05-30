@@ -7,6 +7,8 @@
 #include "JLHE/Events/Event.h"
 #include "JLHE/Events/ApplicatonEvent.h"
 
+#include "JLHE/ImGui/ImGuiLayer.h"
+
 namespace JLHE {
 
 	class Application {

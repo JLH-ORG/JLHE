@@ -4,3 +4,9 @@
 [submodule "JLHE/vendor/GLFW"]
 	path = JLHE/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "JLHE/vendor/imgui--force"]
+	path = JLHE/vendor/imgui--force
+	url = https://github.com/Lewis-McKenzie/imgui
+[submodule "JLHE/vendor/imgui"]
+	path = JLHE/vendor/imgui
+	url = https://github.com/Lewis-McKenzie/imgui

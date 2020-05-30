@@ -1,4 +1,7 @@
 ﻿  Application.cpp
-  WindowsWindow.cpp
+  ImGuiLayer.cpp
+C:\Dev\JLHE\JLHE\src\JLHE\ImGui\ImGuiLayer.cpp(72,80): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  LayerStack.cpp
   Generating Code...
-  JLHE.vcxproj -> S:\dev\JLHE\JLHE\..\bin\Debug-windows-x86_64\JLHE\JLHE.lib
+C:\Dev\JLHE\JLHE\src\JLHE\ImGui\ImGuiLayer.cpp(72,51): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  JLHE.vcxproj -> C:\Dev\JLHE\JLHE\..\bin\Debug-windows-x86_64\JLHE\JLHE.lib

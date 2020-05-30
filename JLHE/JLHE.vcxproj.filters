@@ -4,8 +4,11 @@
     <Filter Include="JLHE">
       <UniqueIdentifier>{68F0867C-5427-880D-FD13-6E10E929040F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JLHE\Events">
-      <UniqueIdentifier>{4C178DE7-B8CC-05DD-41C1-FFB3AD75FCE0}</UniqueIdentifier>
+    <Filter Include="JLHE\ImGui">
+      <UniqueIdentifier>{9213AC9A-7ECB-EDE7-E7D2-C643D3A988D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JLHE\events">
+      <UniqueIdentifier>{6C2B3232-D8E0-AA27-61D5-A4FECD89A12B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
@@ -25,18 +28,6 @@
     <ClInclude Include="src\JLHE\EntryPoint.h">
       <Filter>JLHE</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h">
-      <Filter>JLHE\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\Events\Event.h">
-      <Filter>JLHE\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\Events\KeyEvent.h">
-      <Filter>JLHE\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\Events\MouseEvent.h">
-      <Filter>JLHE\Events</Filter>
-    </ClInclude>
     <ClInclude Include="src\JLHE\Layer.h">
       <Filter>JLHE</Filter>
     </ClInclude>
@@ -49,14 +40,30 @@
     <ClInclude Include="src\JLHE\Window.h">
       <Filter>JLHE</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\events\ApplicatonEvent.h">
+      <Filter>JLHE\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\events\Event.h">
+      <Filter>JLHE\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\events\KeyEvent.h">
+      <Filter>JLHE\events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\events\MouseEvent.h">
+      <Filter>JLHE\events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\jlhepch.h" />
+    <ClInclude Include="src\JLHE\ImGui\ImGuiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
       <Filter>JLHE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp">
+      <Filter>JLHE\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\Layer.cpp">
       <Filter>JLHE</Filter>
@@ -71,5 +78,6 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\jlhepch.cpp" />
+    <ClCompile Include="src\JLHE\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>
