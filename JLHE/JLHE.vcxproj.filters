@@ -7,10 +7,19 @@
     <Filter Include="JLHE\Events">
       <UniqueIdentifier>{4C178DE7-B8CC-05DD-41C1-FFB3AD75FCE0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\JLHE.h" />
     <ClInclude Include="src\JLHE\Application.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core.h">
       <Filter>JLHE</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\EntryPoint.h">
@@ -37,8 +46,13 @@
     <ClInclude Include="src\JLHE\Log.h">
       <Filter>JLHE</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Window.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\jlhepch.h" />
-    <ClInclude Include="src\JLHE\Core.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
@@ -52,6 +66,9 @@
     </ClCompile>
     <ClCompile Include="src\JLHE\Log.cpp">
       <Filter>JLHE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\jlhepch.cpp" />
   </ItemGroup>

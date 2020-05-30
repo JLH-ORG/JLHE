@@ -13,9 +13,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "JLHE/vendor/GLFW/include"
+IncludeDir["Glad"] = "JLHE/vendor/Glad/include"
 
 group "Dependencies"
 	include "JLHE/vendor/GLFW"
+	include "JLHE/vendor/Glad"
 group ""
 
 project "JLHE"
@@ -43,18 +45,22 @@ project "JLHE"
 	includedirs {
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 	
 	links {
-		"GLFW"
+		"GLFW",
+		"Glad",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		systemversion "latest"
 
 		defines {
-			"JLHE_PLATFORM_WINDOWS"
+			"JLHE_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"

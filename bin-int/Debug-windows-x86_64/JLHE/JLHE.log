@@ -1,5 +1,4 @@
-﻿  Layer.cpp
-  LayerStack.cpp
-  Log.cpp
+﻿  Application.cpp
+  WindowsWindow.cpp
   Generating Code...
   JLHE.vcxproj -> S:\dev\JLHE\JLHE\..\bin\Debug-windows-x86_64\JLHE\JLHE.lib
