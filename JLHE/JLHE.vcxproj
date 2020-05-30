@@ -144,15 +144,15 @@
     <ClInclude Include="src\JLHE\Application.h" />
     <ClInclude Include="src\JLHE\Core.h" />
     <ClInclude Include="src\JLHE\EntryPoint.h" />
+    <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h" />
+    <ClInclude Include="src\JLHE\Events\Event.h" />
+    <ClInclude Include="src\JLHE\Events\KeyEvent.h" />
+    <ClInclude Include="src\JLHE\Events\MouseEvent.h" />
     <ClInclude Include="src\JLHE\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\JLHE\Layer.h" />
     <ClInclude Include="src\JLHE\LayerStack.h" />
     <ClInclude Include="src\JLHE\Log.h" />
     <ClInclude Include="src\JLHE\Window.h" />
-    <ClInclude Include="src\JLHE\events\ApplicatonEvent.h" />
-    <ClInclude Include="src\JLHE\events\Event.h" />
-    <ClInclude Include="src\JLHE\events\KeyEvent.h" />
-    <ClInclude Include="src\JLHE\events\MouseEvent.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\jlhepch.h" />
   </ItemGroup>
