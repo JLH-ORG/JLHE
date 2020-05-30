@@ -3,6 +3,7 @@
 #include "Event.h"
 
 namespace JLHE {
+
 	class MouseMovedEvent : public Event {
 	public:
 		MouseMovedEvent(float x, float y)
@@ -13,12 +14,13 @@ namespace JLHE {
 
 		std::string ToString() const override {
 			std::stringstream ss;
-			ss << "Mouse Moved Event: " << m_MouseX << ", " << m_MouseY;
+			ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(MouseMoved)
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+
 	private:
 		float m_MouseX, m_MouseY;
 	};
@@ -43,14 +45,12 @@ namespace JLHE {
 		float m_XOffset, m_YOffset;
 	};
 
-	//base class
 	class MouseButtonEvent : public Event {
 	public:
 		inline int GetMouseButton() const { return m_Button; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	protected:
-		//must be inherited
 		MouseButtonEvent(int button)
 			: m_Button(button) {}
 
@@ -64,7 +64,7 @@ namespace JLHE {
 
 		std::string ToString() const override {
 			std::stringstream ss;
-			ss << "Mouse Button Pressed Event: Button " << m_Button;
+			ss << "MouseButtonPressedEvent: " << m_Button;
 			return ss.str();
 		}
 
@@ -79,7 +79,7 @@ namespace JLHE {
 
 		std::string ToString() const override {
 			std::stringstream ss;
-			ss << "Mouse Button Released Event: " << m_Button;
+			ss << "MouseButtonReleasedEvent: " << m_Button;
 			return ss.str();
 		}
 

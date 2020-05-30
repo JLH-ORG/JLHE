@@ -14,7 +14,9 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "JLHE/vendor/GLFW/include"
 
-include "JLHE/vendor/GLFW"
+group "Dependencies"
+	include "JLHE/vendor/GLFW"
+group ""
 
 project "JLHE"
 	location "JLHE"
@@ -44,8 +46,7 @@ project "JLHE"
 		"%{IncludeDir.GLFW}"
 	}
 	
-	links
-	{
+	links {
 		"GLFW"
 	}
 

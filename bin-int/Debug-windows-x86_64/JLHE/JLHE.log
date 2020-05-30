@@ -1,9 +1,5 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'vendor\GLFW\GLFW.vcxproj' does not exist.
-  Application.cpp
-  Layer.cpp
-C:\Dev\JLHE\JLHE\src\JLHE\Layer.cpp(12,18): error C2084: function 'JLHE::Layer::~Layer(void)' already has a body
+﻿  Layer.cpp
   LayerStack.cpp
-C:\Dev\JLHE\JLHE\src\JLHE\Layer.h(14): message : see previous definition of '{dtor}'
   Log.cpp
   Generating Code...
-C:\Dev\JLHE\JLHE\src\JLHE\LayerStack.cpp(20,25): error C2065: 'overlay': undeclared identifier
+  JLHE.vcxproj -> S:\dev\JLHE\JLHE\..\bin\Debug-windows-x86_64\JLHE\JLHE.lib

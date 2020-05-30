@@ -4,21 +4,16 @@
 
 namespace JLHE {
 
-	//base class
 	class KeyEvent : public Event {
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
 
-		//key event is also an input  
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
-
 	protected:
-		//must be inherited to instantiate
-		KeyEvent(int keyCode)
-			:m_KeyCode(keyCode) {}
+		KeyEvent(int keyCode) 
+			: m_KeyCode(keyCode) {}
 
 		int m_KeyCode;
-
 	};
 	
 	class KeyPressedEvent : public KeyEvent {
@@ -39,8 +34,7 @@ namespace JLHE {
 		int m_RepeatCount;
 	};
 	
-	class KeyReleasedEvent : public KeyEvent
-	{
+	class KeyReleasedEvent : public KeyEvent {
 	public:
 		KeyReleasedEvent(int keycode)
 			: KeyEvent(keycode) {}
