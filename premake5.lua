@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "JLHE/vendor/GLFW/include"
 IncludeDir["Glad"] = "JLHE/vendor/Glad/include"
 IncludeDir["ImGui"] = "JLHE/vendor/imgui"
+IncludeDir["glm"] = "JLHE/vendor/glm"
 
 group "Dependencies"
 	include "JLHE/vendor/GLFW"
@@ -37,7 +38,9 @@ project "JLHE"
 
 	files {
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
+		"%{prj.name}/vendor/glm/glm/**.hpp"
 	}
 
 	defines {
@@ -49,7 +52,8 @@ project "JLHE"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 	
 	links {
@@ -100,7 +104,8 @@ project "Sandbox"
 		includedirs {
 			"JLHE/src",
 			"JLHE/vendor/spdlog/include",
-			"JLHE/vendor"
+			"JLHE/vendor",
+			"%{IncludeDir.glm}"
 		}
 
 		links {

@@ -10,3 +10,6 @@
 [submodule "JLHE/vendor/imgui"]
 	path = JLHE/vendor/imgui
 	url = https://github.com/Lewis-McKenzie/imgui
+[submodule "JLHE/vendor/GLM"]
+	path = JLHE/vendor/GLM
+	url = https://github.com/g-truc/glm.git
