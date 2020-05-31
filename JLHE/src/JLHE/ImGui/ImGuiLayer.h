@@ -2,9 +2,9 @@
 
 #include "JLHE/Layer.h"
 
-#include "JLHE/events/ApplicatonEvent.h"
-#include "JLHE/events/KeyEvent.h"
-#include "JLHE/events/MouseEvent.h"
+#include "JLHE/Events/ApplicatonEvent.h"
+#include "JLHE/Events/KeyEvent.h"
+#include "JLHE/Events/MouseEvent.h"
 
 namespace JLHE {
 

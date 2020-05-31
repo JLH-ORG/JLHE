@@ -2,8 +2,8 @@
 
 #include "Core.h"
 
-#include "JLHE/LayerStack.h"
 #include "JLHE/Window.h"
+#include "JLHE/LayerStack.h"
 #include "JLHE/Events/Event.h"
 #include "JLHE/Events/ApplicatonEvent.h"
 
@@ -31,6 +31,7 @@ namespace JLHE {
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		ImGuiLayer* m_ImGuiLayer;
 	private:
 		static Application* s_Instance;
 	};

@@ -2,6 +2,8 @@
 
 #include "Event.h"
 
+#include <sstream>
+
 namespace JLHE {
 
 	class KeyEvent : public Event {
@@ -59,7 +61,7 @@ namespace JLHE {
 			return ss.str();
 		}
 
-			EVENT_CLASS_TYPE(KeyTyped)
+		EVENT_CLASS_TYPE(KeyTyped)
 	};
 
 }

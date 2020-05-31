@@ -48,14 +48,14 @@ project "JLHE"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 	
 	links {
 		"GLFW",
 		"Glad",
-		ImGui,
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -99,8 +99,8 @@ project "Sandbox"
 
 		includedirs {
 			"JLHE/src",
-			"JLHE/vendor",
-			"JLHE/vendor/spdlog/include"
+			"JLHE/vendor/spdlog/include",
+			"JLHE/vendor"
 		}
 
 		links {

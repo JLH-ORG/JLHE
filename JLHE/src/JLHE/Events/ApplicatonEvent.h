@@ -2,6 +2,8 @@
 
 #include "Event.h"
 
+#include <sstream>
+
 namespace JLHE {
 
 	class WindowResizeEvent : public Event {

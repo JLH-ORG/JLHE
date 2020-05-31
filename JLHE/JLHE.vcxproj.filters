@@ -43,6 +43,12 @@
     <ClInclude Include="src\JLHE\ImGui\ImGuiLayer.h">
       <Filter>JLHE\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Input.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\KeyCodes.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
     <ClInclude Include="src\JLHE\Layer.h">
       <Filter>JLHE</Filter>
     </ClInclude>
@@ -52,8 +58,14 @@
     <ClInclude Include="src\JLHE\Log.h">
       <Filter>JLHE</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\MouseButtonCodes.h">
+      <Filter>JLHE</Filter>
+    </ClInclude>
     <ClInclude Include="src\JLHE\Window.h">
       <Filter>JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
@@ -78,6 +90,9 @@
     </ClCompile>
     <ClCompile Include="src\JLHE\Log.cpp">
       <Filter>JLHE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
