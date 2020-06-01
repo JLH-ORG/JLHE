@@ -155,7 +155,9 @@
     <ClInclude Include="src\JLHE\LayerStack.h" />
     <ClInclude Include="src\JLHE\Log.h" />
     <ClInclude Include="src\JLHE\MouseButtonCodes.h" />
+    <ClInclude Include="src\JLHE\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\JLHE\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\jlhepch.h" />
@@ -575,6 +577,7 @@
     <ClCompile Include="src\JLHE\Layer.cpp" />
     <ClCompile Include="src\JLHE\LayerStack.cpp" />
     <ClCompile Include="src\JLHE\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\jlhepch.cpp">
