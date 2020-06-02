@@ -8,6 +8,7 @@
 #include "JLHE/Events/ApplicatonEvent.h"
 
 #include "JLHE/ImGui/ImGuiLayer.h"
+#include "JLHE/Renderer/Buffer.h"
 
 namespace JLHE {
 
@@ -32,6 +33,10 @@ namespace JLHE {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 		ImGuiLayer* m_ImGuiLayer;
+
+		unsigned int m_VertexArray;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 	};

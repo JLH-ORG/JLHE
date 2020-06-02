@@ -13,8 +13,14 @@
     <Filter Include="src\JLHE\ImGui">
       <UniqueIdentifier>{49B0B2D1-357E-A6D7-1E12-17FE0A7F823C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\JLHE\Renderer">
+      <UniqueIdentifier>{659E606D-D1B4-5E03-1A2C-EA2486812F8B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
@@ -87,8 +93,23 @@
     <ClInclude Include="src\JLHE\MouseButtonCodes.h">
       <Filter>src\JLHE</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Renderer\Buffer.h">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Renderer\GraphicsContext.h">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Renderer\Renderer.h">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\JLHE\Window.h">
       <Filter>src\JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1323,8 +1344,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
@@ -1345,6 +1364,18 @@
     <ClCompile Include="src\JLHE\Log.cpp">
       <Filter>src\JLHE</Filter>
     </ClCompile>
+    <ClCompile Include="src\JLHE\Renderer\Buffer.cpp">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JLHE\Renderer\Renderer.cpp">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1354,6 +1385,5 @@
     <ClCompile Include="src\jlhepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

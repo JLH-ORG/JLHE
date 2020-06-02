@@ -6,6 +6,8 @@
 
 #include "JLHE/Input.h"
 
+#include "JLHE/Renderer/Buffer.h"
+
 namespace JLHE {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -20,6 +22,25 @@ namespace JLHE {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
+
+		// Test
+		glGenVertexArrays(1, &m_VertexArray);
+		glBindVertexArray(m_VertexArray);
+
+		float vertices[3 * 3] = {
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f,
+			 0.0f,  0.5f, 0.0f
+		};
+
+		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+
+		uint32_t indices[3] = { 0, 1, 2 };
+		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		// End Test
 	}
 
 	void Application::PushLayer(Layer* layer) {
@@ -47,6 +68,11 @@ namespace JLHE {
 		while (m_Running) {
 			glClearColor(1.0f, 0.5f, 0.5f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			// Test
+			glBindVertexArray(m_VertexArray);
+			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			//
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
