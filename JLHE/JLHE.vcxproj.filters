@@ -1344,6 +1344,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
@@ -1384,6 +1387,9 @@
     </ClCompile>
     <ClCompile Include="src\jlhepch.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

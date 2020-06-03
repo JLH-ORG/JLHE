@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="src\JLHE.h" />
     <ClInclude Include="src\JLHE\Application.h" />
     <ClInclude Include="src\JLHE\Core.h" />
@@ -574,6 +575,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="src\JLHE\Application.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiLayer.cpp" />
@@ -604,4 +606,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>
