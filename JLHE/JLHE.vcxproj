@@ -140,7 +140,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h" />
     <ClInclude Include="src\JLHE.h" />
     <ClInclude Include="src\JLHE\Application.h" />
     <ClInclude Include="src\JLHE\Core.h" />
@@ -159,6 +158,7 @@
     <ClInclude Include="src\JLHE\Renderer\Buffer.h" />
     <ClInclude Include="src\JLHE\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\JLHE\Renderer\Renderer.h" />
+    <ClInclude Include="src\JLHE\Renderer\Shader.h" />
     <ClInclude Include="src\JLHE\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -575,7 +575,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="src\JLHE\Application.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiLayer.cpp" />
@@ -584,6 +583,7 @@
     <ClCompile Include="src\JLHE\Log.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Buffer.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\JLHE\Renderer\Shader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />

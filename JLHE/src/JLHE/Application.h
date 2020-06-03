@@ -9,6 +9,7 @@
 
 #include "JLHE/ImGui/ImGuiLayer.h"
 #include "JLHE/Renderer/Buffer.h"
+#include "JLHE/Renderer/Shader.h"
 
 namespace JLHE {
 
@@ -34,9 +35,12 @@ namespace JLHE {
 		LayerStack m_LayerStack;
 		ImGuiLayer* m_ImGuiLayer;
 
+		// Test
 		unsigned int m_VertexArray;
 		std::unique_ptr<VertexBuffer> m_VertexBuffer;
 		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
+		// End Test
 	private:
 		static Application* s_Instance;
 	};
