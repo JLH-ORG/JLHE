@@ -1345,6 +1345,8 @@
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\Renderer\Shader.h" />
+    <ClInclude Include="src\JLHE\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
@@ -1387,5 +1389,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\JLHE\Renderer\VertexArray.cpp" />
   </ItemGroup>
 </Project>
