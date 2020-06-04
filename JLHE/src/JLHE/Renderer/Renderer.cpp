@@ -4,4 +4,5 @@
 namespace JLHE {
 
 	RendererAPI Renderer::s_RendererAPI = RendererAPI::OpenGL;
+
 }

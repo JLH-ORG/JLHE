@@ -13,4 +13,5 @@ namespace JLHE {
 	private:
 		static RendererAPI s_RendererAPI;
 	};
+
 }
