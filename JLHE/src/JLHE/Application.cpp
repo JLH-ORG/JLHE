@@ -2,7 +2,9 @@
 #include "Application.h"
 
 #include "JLHE/Log.h"
+
 #include <glad/glad.h>
+#include "JLHE/Renderer/Renderer.h"
 
 #include "JLHE/Input.h"
 
@@ -31,21 +33,21 @@ namespace JLHE {
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		std::shared_ptr<VertexBuffer> vertexBuffer;
+		vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
-		{
-			BufferLayout layout = {
-				{ ShaderDataType::Float3, "a_Position" },
-				{ ShaderDataType::Float4, "a_Color" }
-			};
-
-			m_VertexBuffer->SetLayout(layout);
-			m_VertexArray->AddVertexBuffer(m_VertexBuffer);
-		}
+		BufferLayout layout = {
+			{ ShaderDataType::Float3, "a_Position" },
+			{ ShaderDataType::Float4, "a_Color" }
+		};
+		vertexBuffer->SetLayout(layout);
+		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-		
+		std::shared_ptr<IndexBuffer> indexBuffer;
+		indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		m_VertexArray->SetIndexBuffer(indexBuffer);
+
 		std::string vertexSrc = R"(
 			#version 330 core
 			
@@ -104,11 +106,16 @@ namespace JLHE {
 			glClearColor(1.0f, 0.5f, 0.5f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			// Test
-			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
-			// End Test
+			RenderCommand::SetClearColour({ 1.0f, 0.5f, 0.5f, 1 });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene(); {
+				m_Shader->Bind();
+				Renderer::Submit(m_VertexArray);
+
+				Renderer::EndScene();
+			}
+			
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)

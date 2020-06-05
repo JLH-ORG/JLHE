@@ -28,5 +28,6 @@ namespace JLHE {
 	void OpenGlContext::SwapBuffers() {
 		glfwSwapBuffers(m_WindowHandle);
 	}
+
 }
 

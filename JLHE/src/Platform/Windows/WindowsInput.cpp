@@ -37,5 +37,4 @@ namespace JLHE {
 		return y;
 	}
 
-
 }

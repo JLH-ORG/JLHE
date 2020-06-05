@@ -16,4 +16,5 @@ namespace JLHE {
 	private:
 		GLFWwindow* m_WindowHandle;
 	};
+
 }

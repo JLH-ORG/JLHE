@@ -71,4 +71,5 @@ namespace JLHE {
 
 		m_IndexBuffer = indexBuffer;
 	}
+
 }

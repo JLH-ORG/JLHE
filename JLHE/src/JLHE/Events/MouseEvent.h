@@ -87,4 +87,5 @@ namespace JLHE {
 
 		EVENT_CLASS_TYPE(MouseButtonReleased)
 	};
+
 }

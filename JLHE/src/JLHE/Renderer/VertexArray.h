@@ -23,4 +23,5 @@ namespace JLHE {
 
 		static VertexArray* Create();
 	};
+
 }
