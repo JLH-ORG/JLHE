@@ -103,8 +103,6 @@ namespace JLHE {
 
 	void Application::Run() {
 		while (m_Running) {
-			glClearColor(1.0f, 0.5f, 0.5f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
 
 			RenderCommand::SetClearColour({ 1.0f, 0.5f, 0.5f, 1 });
 			RenderCommand::Clear();
@@ -112,11 +110,9 @@ namespace JLHE {
 			Renderer::BeginScene(); {
 				m_Shader->Bind();
 				Renderer::Submit(m_VertexArray);
-
 				Renderer::EndScene();
 			}
 			
-
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiRender();
