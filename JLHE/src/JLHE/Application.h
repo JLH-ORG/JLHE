@@ -37,12 +37,6 @@ namespace JLHE {
 		LayerStack m_LayerStack;
 		ImGuiLayer* m_ImGuiLayer;
 
-		// Test
-		std::shared_ptr<VertexArray> m_VertexArray;
-		std::shared_ptr<Shader> m_Shader;
-		// End Test
-
-		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};

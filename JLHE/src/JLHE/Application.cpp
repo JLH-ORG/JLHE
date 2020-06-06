@@ -16,9 +16,7 @@ namespace JLHE {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application() 
-		: m_Camera(-1.6f, 1.6f, -0.9f, 0.9f)
-	{
+	Application::Application() {
 		JLHE_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
@@ -26,65 +24,6 @@ namespace JLHE {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-
-		// TODO: Implement Test Classes
-		// Test
-		m_VertexArray.reset(VertexArray::Create());
-
-		float vertices[3 * 7] = {
-			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
-			 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
-			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
-		};
-
-		std::shared_ptr<VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-
-		BufferLayout layout = {
-			{ ShaderDataType::Float3, "a_Position" },
-			{ ShaderDataType::Float4, "a_Color" }
-		};
-		vertexBuffer->SetLayout(layout);
-		m_VertexArray->AddVertexBuffer(vertexBuffer);
-
-		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<IndexBuffer> indexBuffer;
-		indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-		m_VertexArray->SetIndexBuffer(indexBuffer);
-
-		std::string vertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec4 a_Color;
-
-			uniform mat4 u_ViewProjectionMatrix;
-
-			out vec3 v_Position;
-			out vec4 v_Color;
-			void main()
-			{
-				v_Position = a_Position;
-				v_Color = a_Color;
-				gl_Position = u_ViewProjectionMatrix * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string fragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-			in vec3 v_Position;
-			in vec4 v_Color;
-			void main()
-			{
-				color = vec4(v_Position * 0.5 + 0.5, 1.0);
-				color = v_Color;
-			}
-		)";
-
-		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
-		// End Test 
 	}
 
 	void Application::PushLayer(Layer* layer) {
@@ -110,19 +49,9 @@ namespace JLHE {
 
 	void Application::Run() {
 		while (m_Running) {
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
 
-			RenderCommand::SetClearColour({ 1.0f, 0.5f, 0.5f, 1 });
-			RenderCommand::Clear();
-
-			m_Camera.SetRotation(45.0f);
-
-			Renderer::BeginScene(m_Camera); {
-				m_Shader->Bind();
-				m_Shader->UploadUniformMat4("u_ViewProjectionMatrix", m_Camera.GetViewProjectionMatrix());
-				Renderer::Submit(m_VertexArray, m_Shader);
-				Renderer::EndScene();
-			}
-			
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiRender();

@@ -27,7 +27,7 @@ namespace JLHE {
 
 	OpenGLVertexArray::OpenGLVertexArray() {
 		// Should be glCreateVertexArrays
-		glCreateVertexArrays(1, &m_RendererID);
+		glGenVertexArrays(1, &m_RendererID);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray() {

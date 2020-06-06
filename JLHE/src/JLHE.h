@@ -12,6 +12,15 @@
 
 #include "JLHE/ImGui/ImGuiLayer.h"
 
+// == RENDERER ==============
+#include "JLHE/Renderer/Buffer.h"
+#include "JLHE/Renderer/OrthographicCamera.h"
+#include "JLHE/Renderer/RenderCommand.h"
+#include "JLHE/Renderer/Renderer.h"
+#include "JLHE/Renderer/Shader.h"
+#include "JLHE/Renderer/VertexArray.h"
+// ==========================
+
 // == ENTRY POINT ===========
 #include "JLHE/EntryPoint.h"
 // ==========================
