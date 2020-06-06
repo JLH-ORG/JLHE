@@ -8,13 +8,17 @@
 
 #include "JLHE/Input.h"
 
+
+
 namespace JLHE {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application() {
+	Application::Application() 
+		: m_Camera(-1.6f, 1.6f, -0.9f, 0.9f)
+	{
 		JLHE_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
@@ -53,13 +57,16 @@ namespace JLHE {
 			
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
+
+			uniform mat4 u_ViewProjectionMatrix;
+
 			out vec3 v_Position;
 			out vec4 v_Color;
 			void main()
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjectionMatrix * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -107,9 +114,12 @@ namespace JLHE {
 			RenderCommand::SetClearColour({ 1.0f, 0.5f, 0.5f, 1 });
 			RenderCommand::Clear();
 
-			Renderer::BeginScene(); {
+			m_Camera.SetRotation(45.0f);
+
+			Renderer::BeginScene(m_Camera); {
 				m_Shader->Bind();
-				Renderer::Submit(m_VertexArray);
+				m_Shader->UploadUniformMat4("u_ViewProjectionMatrix", m_Camera.GetViewProjectionMatrix());
+				Renderer::Submit(m_VertexArray, m_Shader);
 				Renderer::EndScene();
 			}
 			

@@ -11,6 +11,7 @@
 #include "JLHE/Renderer/Buffer.h"
 #include "JLHE/Renderer/Shader.h"
 #include "JLHE/Renderer/VertexArray.h"
+#include "JLHE/Renderer/OrthographicCamera.h"
 
 namespace JLHE {
 
@@ -40,6 +41,8 @@ namespace JLHE {
 		std::shared_ptr<VertexArray> m_VertexArray;
 		std::shared_ptr<Shader> m_Shader;
 		// End Test
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
