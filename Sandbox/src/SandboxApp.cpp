@@ -1,9 +1,12 @@
 #include <JLHE.h>
 
+// TEMPORARY
+#include <glm/gtc/matrix_transform.hpp>
+
 class ExampleLayer : public JLHE::Layer {
 public:
 	ExampleLayer() 
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) {
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_TrianglePosition(0.0f), m_CameraPosition(0.0f) {
 		m_VertexArray.reset(JLHE::VertexArray::Create());
 
 		float vertices[3 * 7] = {
@@ -34,6 +37,7 @@ public:
 			layout(location = 1) in vec4 a_Color;
 
 			uniform mat4 u_ViewProjectionMatrix;
+			uniform mat4 u_Transform;
 
 			out vec3 v_Position;
 			out vec4 v_Color;
@@ -41,7 +45,7 @@ public:
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = u_ViewProjectionMatrix * vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjectionMatrix * u_Transform * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -59,21 +63,50 @@ public:
 		)";
 
 		m_Shader.reset(new JLHE::Shader(vertexSrc, fragmentSrc));
+
+
 	}
 
-	void OnUpdate() override {
+	void OnUpdate(JLHE::Timestep timestep) override {
+
+		if (JLHE::Input::IsKeyPressed(JLHE_KEY_LEFT))
+			m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
+		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_RIGHT))
+			m_CameraPosition.x += m_CameraMoveSpeed * timestep;
+		
+		if (JLHE::Input::IsKeyPressed(JLHE_KEY_UP))
+			m_CameraPosition.y += m_CameraMoveSpeed * timestep;
+		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_DOWN))
+			m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
+
+		if (JLHE::Input::IsKeyPressed(JLHE_KEY_J))
+			m_TrianglePosition.x -= m_TriangleMoveSpeed * timestep;
+		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_L))
+			m_TrianglePosition.x += m_TriangleMoveSpeed * timestep;
+
+		if (JLHE::Input::IsKeyPressed(JLHE_KEY_I))
+			m_TrianglePosition.y += m_TriangleMoveSpeed * timestep;
+		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_K))
+			m_TrianglePosition.y -= m_TriangleMoveSpeed * timestep;
+		
+		if (JLHE::Input::IsKeyPressed(JLHE_KEY_A))
+			m_CameraRotation += m_CameraRotationSpeed * timestep;
+		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_D))
+			m_CameraRotation -= m_CameraRotationSpeed * timestep;
+		
+		m_Camera.SetPosition(m_CameraPosition);
+		m_Camera.SetRotation(m_CameraRotation);
+
 		JLHE::RenderCommand::SetClearColour({ 1.0f, 0.5f, 0.5f, 1 });
 		JLHE::RenderCommand::Clear();
-
-		m_Camera.SetRotation(45.0f);
 
 		JLHE::Renderer::BeginScene(m_Camera); {
 			m_Shader->Bind();
 			m_Shader->UploadUniformMat4("u_ViewProjectionMatrix", m_Camera.GetViewProjectionMatrix());
-			JLHE::Renderer::Submit(m_VertexArray, m_Shader);
+			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), m_TrianglePosition));
+			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::scale(glm::mat4(1.0f), glm::vec3(0.1f)));
 			JLHE::Renderer::EndScene();
 		}
-
 	}
 
 private:
@@ -81,6 +114,14 @@ private:
 	std::shared_ptr<JLHE::Shader> m_Shader;
 
 	JLHE::OrthographicCamera m_Camera;
+
+	glm::vec3 m_CameraPosition;
+	glm::vec3 m_TrianglePosition;
+
+	float m_CameraMoveSpeed = 5.0f;
+	float m_CameraRotation = 0.0f;
+	float m_CameraRotationSpeed = 180.0f;
+	float m_TriangleMoveSpeed = 0.5f;
 };
 
 class Sandbox : public JLHE::Application {

@@ -12,6 +12,8 @@
 
 #include "JLHE/ImGui/ImGuiLayer.h"
 
+#include "JLHE/Core/Timestep.h"
+
 // == RENDERER ==============
 #include "JLHE/Renderer/Buffer.h"
 #include "JLHE/Renderer/OrthographicCamera.h"

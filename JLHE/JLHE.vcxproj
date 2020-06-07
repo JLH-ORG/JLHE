@@ -143,6 +143,7 @@
     <ClInclude Include="src\JLHE.h" />
     <ClInclude Include="src\JLHE\Application.h" />
     <ClInclude Include="src\JLHE\Core.h" />
+    <ClInclude Include="src\JLHE\Core\Timestep.h" />
     <ClInclude Include="src\JLHE\EntryPoint.h" />
     <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h" />
     <ClInclude Include="src\JLHE\Events\Event.h" />

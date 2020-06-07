@@ -8,7 +8,7 @@
 
 #include "JLHE/Input.h"
 
-
+#include <GLFW/glfw3.h>
 
 namespace JLHE {
 
@@ -16,7 +16,8 @@ namespace JLHE {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application() {
+	Application::Application()
+		: m_LastTime(0.0f) {
 		JLHE_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
@@ -49,8 +50,12 @@ namespace JLHE {
 
 	void Application::Run() {
 		while (m_Running) {
+			float time = glfwGetTime();
+			Timestep timestep = time - m_LastTime;
+			m_LastTime = time;
+
 			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)

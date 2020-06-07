@@ -37,7 +37,8 @@ namespace JLHE {
 		LayerStack m_LayerStack;
 		ImGuiLayer* m_ImGuiLayer;
 
-	private:
+		Timestep m_LastTime;
+
 		static Application* s_Instance;
 	};
 
