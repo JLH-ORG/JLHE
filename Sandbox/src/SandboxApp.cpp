@@ -1,7 +1,11 @@
 #include <JLHE.h>
+#include <Platform/OpenGL/OpenGLShader.h>
+
+#include <imgui/imgui.h>
 
 // TEMPORARY
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public JLHE::Layer {
 public:
@@ -41,8 +45,7 @@ public:
 
 			out vec3 v_Position;
 			out vec4 v_Color;
-			void main()
-			{
+			void main() {
 				v_Position = a_Position;
 				v_Color = a_Color;
 				gl_Position = u_ViewProjectionMatrix * u_Transform * vec4(a_Position, 1.0);	
@@ -55,14 +58,13 @@ public:
 			layout(location = 0) out vec4 color;
 			in vec3 v_Position;
 			in vec4 v_Color;
-			void main()
-			{
+			void main() {
 				color = vec4(v_Position * 0.5 + 0.5, 1.0);
 				color = v_Color;
 			}
 		)";
 
-		m_Shader.reset(new JLHE::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(JLHE::Shader::Create(vertexSrc, fragmentSrc));
 
 
 	}
@@ -97,16 +99,22 @@ public:
 		m_Camera.SetPosition(m_CameraPosition);
 		m_Camera.SetRotation(m_CameraRotation);
 
-		JLHE::RenderCommand::SetClearColour({ 1.0f, 0.5f, 0.5f, 1 });
+		JLHE::RenderCommand::SetClearColour({ m_ClearColour.r, m_ClearColour.g, m_ClearColour.b, 255 });
 		JLHE::RenderCommand::Clear();
 
 		JLHE::Renderer::BeginScene(m_Camera); {
 			m_Shader->Bind();
-			m_Shader->UploadUniformMat4("u_ViewProjectionMatrix", m_Camera.GetViewProjectionMatrix());
+			std::dynamic_pointer_cast<JLHE::OpenGLShader>(m_Shader)->UploadUniformMat4("u_ViewProjectionMatrix", m_Camera.GetViewProjectionMatrix());
 			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), m_TrianglePosition));
 			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::scale(glm::mat4(1.0f), glm::vec3(0.1f)));
 			JLHE::Renderer::EndScene();
 		}
+	}
+
+	virtual void OnImGuiRender() override {
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("Clear Colour", glm::value_ptr(m_ClearColour));
+		ImGui::End();
 	}
 
 private:
@@ -122,6 +130,8 @@ private:
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
 	float m_TriangleMoveSpeed = 0.5f;
+
+	glm::vec3 m_ClearColour = { 30, 30, 30 };
 };
 
 class Sandbox : public JLHE::Application {
