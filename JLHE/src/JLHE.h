@@ -16,6 +16,7 @@
 
 // == RENDERER ==============
 #include "JLHE/Renderer/Buffer.h"
+#include "JLHE/Renderer/Texture.h"
 #include "JLHE/Renderer/OrthographicCamera.h"
 #include "JLHE/Renderer/RenderCommand.h"
 #include "JLHE/Renderer/Renderer.h"

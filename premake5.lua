@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "JLHE/vendor/GLFW/include"
 IncludeDir["Glad"] = "JLHE/vendor/Glad/include"
 IncludeDir["ImGui"] = "JLHE/vendor/imgui"
 IncludeDir["glm"] = "JLHE/vendor/glm"
+IncludeDir["stb_image"] = "JLHE/vendor/stb_image"
 
 group "Dependencies"
 	include "JLHE/vendor/GLFW"
@@ -39,6 +40,8 @@ project "JLHE"
 	files {
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 	}
@@ -53,7 +56,8 @@ project "JLHE"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",		
+		"%{IncludeDir.stb_image}"
 	}
 	
 	links {

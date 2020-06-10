@@ -66,11 +66,72 @@ public:
 
 		m_Shader.reset(JLHE::Shader::Create(vertexSrc, fragmentSrc));
 
+		//----------------------------------------------------------
+
+		m_SquareVA.reset(JLHE::VertexArray::Create());
+		
+		float squareVertices[4 * 5] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
+		};
+		
+		JLHE::Ref<JLHE::VertexBuffer> squareVertexBuffer;
+		squareVertexBuffer.reset(JLHE::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		
+		squareVertexBuffer->SetLayout({
+			{ JLHE::ShaderDataType::Float3, "a_Position" },
+			{ JLHE::ShaderDataType::Float2, "a_TexCoord" } 
+		});
+		m_SquareVA->AddVertexBuffer(squareVertexBuffer);
+		
+		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+		JLHE::Ref<JLHE::IndexBuffer> squareIndexBuffer;
+		squareIndexBuffer.reset(JLHE::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		m_SquareVA->SetIndexBuffer(squareIndexBuffer);
+		
+		std::string TexVertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+		
+			uniform mat4 u_ViewProjectionMatrix;
+			uniform mat4 u_Transform;
+		
+			out vec2 v_TexCoord;
+		
+			void main() {
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjectionMatrix * u_Transform * vec4(a_Position, 1.0);	
+			}
+		)";
+		
+		std::string texFragmentSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+		
+			in vec2 v_TexCoord;
+			
+			uniform sampler2D u_Texture;
+		
+			void main() {
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+		
+		m_TextureShader.reset(JLHE::Shader::Create(TexVertexSrc, texFragmentSrc));
+		
+		m_Texture = JLHE::Texture2D::Create("Assets/Textures/Checkerboard.png");
+		
+		std::dynamic_pointer_cast<JLHE::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<JLHE::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 
 	}
 
 	void OnUpdate(JLHE::Timestep timestep) override {
-
 		if (JLHE::Input::IsKeyPressed(JLHE_KEY_LEFT))
 			m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
 		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_RIGHT))
@@ -103,10 +164,11 @@ public:
 		JLHE::RenderCommand::Clear();
 
 		JLHE::Renderer::BeginScene(m_Camera); {
-			m_Shader->Bind();
-			std::dynamic_pointer_cast<JLHE::OpenGLShader>(m_Shader)->UploadUniformMat4("u_ViewProjectionMatrix", m_Camera.GetViewProjectionMatrix());
-			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), m_TrianglePosition));
-			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::scale(glm::mat4(1.0f), glm::vec3(0.1f)));
+			m_Texture->Bind();
+			JLHE::Renderer::Submit(m_SquareVA, m_TextureShader, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			
+			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), m_TrianglePosition) * glm::scale(glm::mat4(1.0f), glm::vec3(0.1f)));
+	
 			JLHE::Renderer::EndScene();
 		}
 	}
@@ -118,10 +180,12 @@ public:
 	}
 
 private:
-	JLHE::Ref<JLHE::VertexArray> m_VertexArray;
-	JLHE::Ref<JLHE::Shader> m_Shader;
+	JLHE::Ref<JLHE::VertexArray> m_VertexArray, m_SquareVA;
+	JLHE::Ref<JLHE::Shader> m_Shader, m_TextureShader;
 
 	JLHE::OrthographicCamera m_Camera;
+
+	JLHE::Ref<JLHE::Texture2D> m_Texture;
 
 	glm::vec3 m_CameraPosition;
 	glm::vec3 m_TrianglePosition;
