@@ -20,7 +20,7 @@ namespace JLHE {
 		: m_LastTime(0.0f) {
 		JLHE_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window = JLHE::Scope<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 		m_ImGuiLayer = new ImGuiLayer();

@@ -19,7 +19,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<JLHE::VertexBuffer> vertexBuffer;
+		JLHE::Ref<JLHE::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(JLHE::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		JLHE::BufferLayout layout = {
@@ -30,7 +30,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<JLHE::IndexBuffer> indexBuffer;
+		JLHE::Ref<JLHE::IndexBuffer> indexBuffer;
 		indexBuffer.reset(JLHE::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -118,8 +118,8 @@ public:
 	}
 
 private:
-	std::shared_ptr<JLHE::VertexArray> m_VertexArray;
-	std::shared_ptr<JLHE::Shader> m_Shader;
+	JLHE::Ref<JLHE::VertexArray> m_VertexArray;
+	JLHE::Ref<JLHE::Shader> m_Shader;
 
 	JLHE::OrthographicCamera m_Camera;
 

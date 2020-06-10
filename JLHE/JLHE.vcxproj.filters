@@ -7,6 +7,9 @@
     <Filter Include="src\JLHE">
       <UniqueIdentifier>{DF0F20CF-CBDC-7ADA-F4F5-6882E021B068}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\JLHE\Core">
+      <UniqueIdentifier>{97F7284C-03B8-A482-CCF2-EDFF3872E95E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\JLHE\Events">
       <UniqueIdentifier>{E34A67FF-4FD6-D4C3-58E7-57B8C4F130C4}</UniqueIdentifier>
     </Filter>
@@ -56,6 +59,9 @@
     </ClInclude>
     <ClInclude Include="src\JLHE\Core.h">
       <Filter>src\JLHE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\Timestep.h">
+      <Filter>src\JLHE\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\EntryPoint.h">
       <Filter>src\JLHE</Filter>
@@ -127,6 +133,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1365,8 +1374,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Core\Timestep.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
@@ -1417,6 +1424,9 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1429,6 +1439,5 @@
     <ClCompile Include="src\jlhepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

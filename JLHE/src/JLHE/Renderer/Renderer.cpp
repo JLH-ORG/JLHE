@@ -15,7 +15,7 @@ namespace JLHE {
 
 	}
 
-	void Renderer::Submit(const std::shared_ptr<VertexArray>& vertexArray, const std::shared_ptr<Shader>& shader, const glm::mat4& transform) {
+	void Renderer::Submit(const JLHE::Ref<VertexArray>& vertexArray, const JLHE::Ref<Shader>& shader, const glm::mat4& transform) {
 		shader->Bind();
 		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_ViewProjectionMatrix", m_SceneData->ViewProjectionMatrix);
 		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_Transform", transform);
