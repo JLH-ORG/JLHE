@@ -144,6 +144,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
@@ -1383,7 +1386,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Application.cpp">
@@ -1422,6 +1424,9 @@
     <ClCompile Include="src\JLHE\Renderer\Shader.cpp">
       <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\JLHE\Renderer\Texture.cpp">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\VertexArray.cpp">
       <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
@@ -1435,6 +1440,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
@@ -1452,7 +1460,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
-    <ClCompile Include="src\JLHE\Renderer\Texture.cpp" />
   </ItemGroup>
 </Project>
