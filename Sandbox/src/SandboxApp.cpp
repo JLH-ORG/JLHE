@@ -91,38 +91,7 @@ public:
 		squareIndexBuffer.reset(JLHE::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIndexBuffer);
 		
-		std::string TexVertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec2 a_TexCoord;
-		
-			uniform mat4 u_ViewProjectionMatrix;
-			uniform mat4 u_Transform;
-		
-			out vec2 v_TexCoord;
-		
-			void main() {
-				v_TexCoord = a_TexCoord;
-				gl_Position = u_ViewProjectionMatrix * u_Transform * vec4(a_Position, 1.0);	
-			}
-		)";
-		
-		std::string texFragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-		
-			in vec2 v_TexCoord;
-			
-			uniform sampler2D u_Texture;
-		
-			void main() {
-				color = texture(u_Texture, v_TexCoord);
-			}
-		)";
-		
-		m_TextureShader.reset(JLHE::Shader::Create(TexVertexSrc, texFragmentSrc));
+		m_TextureShader.reset(JLHE::Shader::Create("Assets/Shaders/Texture.glsl"));
 		
 		m_Texture = JLHE::Texture2D::Create("Assets/Textures/Checkerboard.png");
 		
