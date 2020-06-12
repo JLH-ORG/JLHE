@@ -64,7 +64,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(JLHE::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = JLHE::Shader::Create("Triangle", vertexSrc, fragmentSrc);
 
 		//----------------------------------------------------------
 
@@ -91,12 +91,13 @@ public:
 		squareIndexBuffer.reset(JLHE::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIndexBuffer);
 		
-		m_TextureShader.reset(JLHE::Shader::Create("Assets/Shaders/Texture.glsl"));
-		
+		//m_TextureShader = JLHE::Shader::Create("Assets/Shaders/Texture.glsl");
+		auto textureShader = m_ShaderLibrary.Load("Assets/Shaders/Texture.glsl");
+
 		m_Texture = JLHE::Texture2D::Create("Assets/Textures/Checkerboard.png");
 		
-		std::dynamic_pointer_cast<JLHE::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<JLHE::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<JLHE::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<JLHE::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 
 	}
 
@@ -132,9 +133,11 @@ public:
 		JLHE::RenderCommand::SetClearColour({ m_ClearColour.r, m_ClearColour.g, m_ClearColour.b, 255 });
 		JLHE::RenderCommand::Clear();
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		JLHE::Renderer::BeginScene(m_Camera); {
 			m_Texture->Bind();
-			JLHE::Renderer::Submit(m_SquareVA, m_TextureShader, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			JLHE::Renderer::Submit(m_SquareVA, textureShader, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 			
 			JLHE::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), m_TrianglePosition) * glm::scale(glm::mat4(1.0f), glm::vec3(0.1f)));
 	
@@ -150,7 +153,7 @@ public:
 
 private:
 	JLHE::Ref<JLHE::VertexArray> m_VertexArray, m_SquareVA;
-	JLHE::Ref<JLHE::Shader> m_Shader, m_TextureShader;
+	JLHE::Ref<JLHE::Shader> m_Shader;
 
 	JLHE::OrthographicCamera m_Camera;
 
@@ -163,6 +166,8 @@ private:
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
 	float m_TriangleMoveSpeed = 0.5f;
+
+	JLHE::ShaderLibrary m_ShaderLibrary;
 
 	glm::vec3 m_ClearColour = { 30, 30, 30 };
 };
