@@ -156,6 +156,7 @@
     <ClInclude Include="src\JLHE\LayerStack.h" />
     <ClInclude Include="src\JLHE\Log.h" />
     <ClInclude Include="src\JLHE\MouseButtonCodes.h" />
+    <ClInclude Include="src\JLHE\OrthographicCameraController.h" />
     <ClInclude Include="src\JLHE\Renderer\Buffer.h" />
     <ClInclude Include="src\JLHE\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\JLHE\Renderer\OrthographicCamera.h" />
@@ -592,6 +593,7 @@
     <ClCompile Include="src\JLHE\Layer.cpp" />
     <ClCompile Include="src\JLHE\LayerStack.cpp" />
     <ClCompile Include="src\JLHE\Log.cpp" />
+    <ClCompile Include="src\JLHE\OrthographicCameraController.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Buffer.cpp" />
     <ClCompile Include="src\JLHE\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Renderer.cpp" />
@@ -627,4 +629,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>

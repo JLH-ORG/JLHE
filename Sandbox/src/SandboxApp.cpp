@@ -10,7 +10,7 @@
 class ExampleLayer : public JLHE::Layer {
 public:
 	ExampleLayer() 
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_TrianglePosition(0.0f), m_CameraPosition(0.0f) {
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f, true), m_TrianglePosition(0.0f) {
 		m_VertexArray.reset(JLHE::VertexArray::Create());
 
 		float vertices[3 * 7] = {
@@ -102,40 +102,14 @@ public:
 	}
 
 	void OnUpdate(JLHE::Timestep timestep) override {
-		if (JLHE::Input::IsKeyPressed(JLHE_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
-		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * timestep;
-		
-		if (JLHE::Input::IsKeyPressed(JLHE_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * timestep;
-		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
-
-		if (JLHE::Input::IsKeyPressed(JLHE_KEY_J))
-			m_TrianglePosition.x -= m_TriangleMoveSpeed * timestep;
-		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_L))
-			m_TrianglePosition.x += m_TriangleMoveSpeed * timestep;
-
-		if (JLHE::Input::IsKeyPressed(JLHE_KEY_I))
-			m_TrianglePosition.y += m_TriangleMoveSpeed * timestep;
-		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_K))
-			m_TrianglePosition.y -= m_TriangleMoveSpeed * timestep;
-		
-		if (JLHE::Input::IsKeyPressed(JLHE_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * timestep;
-		else if (JLHE::Input::IsKeyPressed(JLHE_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * timestep;
-		
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
+		m_CameraController.OnUpdate(timestep);
 
 		JLHE::RenderCommand::SetClearColour({ m_ClearColour.r, m_ClearColour.g, m_ClearColour.b, 255 });
 		JLHE::RenderCommand::Clear();
 
 		auto textureShader = m_ShaderLibrary.Get("Texture");
 
-		JLHE::Renderer::BeginScene(m_Camera); {
+		JLHE::Renderer::BeginScene(m_CameraController.GetCamera()); {
 			m_Texture->Bind();
 			JLHE::Renderer::Submit(m_SquareVA, textureShader, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 			
@@ -155,16 +129,13 @@ private:
 	JLHE::Ref<JLHE::VertexArray> m_VertexArray, m_SquareVA;
 	JLHE::Ref<JLHE::Shader> m_Shader;
 
-	JLHE::OrthographicCamera m_Camera;
+	JLHE::OrthographicCameraController m_CameraController;
 
 	JLHE::Ref<JLHE::Texture2D> m_Texture;
 
 	glm::vec3 m_CameraPosition;
 	glm::vec3 m_TrianglePosition;
 
-	float m_CameraMoveSpeed = 5.0f;
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
 	float m_TriangleMoveSpeed = 0.5f;
 
 	JLHE::ShaderLibrary m_ShaderLibrary;
