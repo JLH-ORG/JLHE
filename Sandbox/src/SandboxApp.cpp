@@ -125,6 +125,10 @@ public:
 		ImGui::End();
 	}
 
+	virtual void OnEvent(JLHE::Event& e) override {
+		m_CameraController.OnEvent(e);
+	}
+
 private:
 	JLHE::Ref<JLHE::VertexArray> m_VertexArray, m_SquareVA;
 	JLHE::Ref<JLHE::Shader> m_Shader;

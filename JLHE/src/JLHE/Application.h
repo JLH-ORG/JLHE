@@ -31,9 +31,11 @@ namespace JLHE {
 		inline Window& GetWindow() { return *m_Window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
+		bool OnWindowResize(WindowResizeEvent& e);
 
 		JLHE::Scope<Window> m_Window;
 		bool m_Running = true;
+		bool m_Minimized = false;
 		LayerStack m_LayerStack;
 		ImGuiLayer* m_ImGuiLayer;
 
