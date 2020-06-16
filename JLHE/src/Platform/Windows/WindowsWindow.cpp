@@ -1,6 +1,6 @@
 #include "jlhepch.h"
-#include "JLHE/Log.h"
-#include "WindowsWindow.h"
+#include "JLHE/Core/Log.h"
+#include "Platform/Windows/WindowsWindow.h"
 
 #include "JLHE/Events/ApplicatonEvent.h"
 #include "JLHE/Events/MouseEvent.h"

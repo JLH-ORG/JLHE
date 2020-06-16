@@ -2,7 +2,7 @@
 #include "WindowsInput.h"
 
 #include "GLFW/glfw3.h"
-#include "JLHE/Application.h"
+#include "JLHE/Core/Application.h"
 
 namespace JLHE {
 

@@ -2,8 +2,8 @@
 
 #include "Core.h"
 
-#include "JLHE/Window.h"
-#include "JLHE/LayerStack.h"
+#include "JLHE/Core/Window.h"
+#include "JLHE/Core/LayerStack.h"
 #include "JLHE/Events/Event.h"
 #include "JLHE/Events/ApplicatonEvent.h"
 

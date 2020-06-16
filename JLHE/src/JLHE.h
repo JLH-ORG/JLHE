@@ -2,14 +2,14 @@
 
 // FOR USE BY JLHE APPLICATIONS :
 
-#include "JLHE/Application.h"
-#include "JLHE/Layer.h"
-#include "JLHE/Log.h"
+#include "JLHE/Core/Application.h"
+#include "JLHE/Core/Layer.h"
+#include "JLHE/Core/Log.h"
 
-#include "JLHE/Input.h"
-#include "JLHE/KeyCodes.h"
-#include "JLHE/MouseButtonCodes.h"
-#include "JLHE/OrthographicCameraController.h"
+#include "JLHE/Core/Input.h"
+#include "JLHE/Core/KeyCodes.h"
+#include "JLHE/Core/MouseButtonCodes.h"
+#include "JLHE/Renderer/OrthographicCameraController.h"
 
 #include "JLHE/ImGui/ImGuiLayer.h"
 
@@ -24,8 +24,4 @@
 #include "JLHE/Renderer/Renderer.h"
 #include "JLHE/Renderer/Shader.h"
 #include "JLHE/Renderer/VertexArray.h"
-// ==========================
-
-// == ENTRY POINT ===========
-#include "JLHE/EntryPoint.h"
 // ==========================

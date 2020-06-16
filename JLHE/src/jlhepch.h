@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "JLHE/Log.h"
+#include "JLHE/Core/Log.h"
 
 #ifdef JLHE_PLATFORM_WINDOWS
 	#include <Windows.h>

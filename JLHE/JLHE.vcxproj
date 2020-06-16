@@ -141,32 +141,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\JLHE.h" />
-    <ClInclude Include="src\JLHE\Application.h" />
-    <ClInclude Include="src\JLHE\Core.h" />
+    <ClInclude Include="src\JLHE\Core\Application.h" />
+    <ClInclude Include="src\JLHE\Core\Core.h" />
+    <ClInclude Include="src\JLHE\Core\EntryPoint.h" />
+    <ClInclude Include="src\JLHE\Core\Input.h" />
+    <ClInclude Include="src\JLHE\Core\KeyCodes.h" />
+    <ClInclude Include="src\JLHE\Core\Layer.h" />
+    <ClInclude Include="src\JLHE\Core\LayerStack.h" />
+    <ClInclude Include="src\JLHE\Core\Log.h" />
+    <ClInclude Include="src\JLHE\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\JLHE\Core\Timestep.h" />
-    <ClInclude Include="src\JLHE\EntryPoint.h" />
+    <ClInclude Include="src\JLHE\Core\Window.h" />
     <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h" />
     <ClInclude Include="src\JLHE\Events\Event.h" />
     <ClInclude Include="src\JLHE\Events\KeyEvent.h" />
     <ClInclude Include="src\JLHE\Events\MouseEvent.h" />
     <ClInclude Include="src\JLHE\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\JLHE\Input.h" />
-    <ClInclude Include="src\JLHE\KeyCodes.h" />
-    <ClInclude Include="src\JLHE\Layer.h" />
-    <ClInclude Include="src\JLHE\LayerStack.h" />
-    <ClInclude Include="src\JLHE\Log.h" />
-    <ClInclude Include="src\JLHE\MouseButtonCodes.h" />
-    <ClInclude Include="src\JLHE\OrthographicCameraController.h" />
     <ClInclude Include="src\JLHE\Renderer\Buffer.h" />
     <ClInclude Include="src\JLHE\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\JLHE\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\JLHE\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\JLHE\Renderer\RenderCommand.h" />
     <ClInclude Include="src\JLHE\Renderer\Renderer.h" />
     <ClInclude Include="src\JLHE\Renderer\RendererAPI.h" />
     <ClInclude Include="src\JLHE\Renderer\Shader.h" />
     <ClInclude Include="src\JLHE\Renderer\Texture.h" />
     <ClInclude Include="src\JLHE\Renderer\VertexArray.h" />
-    <ClInclude Include="src\JLHE\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -587,15 +587,15 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\JLHE\Application.cpp" />
+    <ClCompile Include="src\JLHE\Core\Application.cpp" />
+    <ClCompile Include="src\JLHE\Core\Layer.cpp" />
+    <ClCompile Include="src\JLHE\Core\LayerStack.cpp" />
+    <ClCompile Include="src\JLHE\Core\Log.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\JLHE\Layer.cpp" />
-    <ClCompile Include="src\JLHE\LayerStack.cpp" />
-    <ClCompile Include="src\JLHE\Log.cpp" />
-    <ClCompile Include="src\JLHE\OrthographicCameraController.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Buffer.cpp" />
     <ClCompile Include="src\JLHE\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\JLHE\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Renderer.cpp" />
     <ClCompile Include="src\JLHE\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\JLHE\Renderer\RendererCommand.cpp" />

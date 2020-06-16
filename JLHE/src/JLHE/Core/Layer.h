@@ -1,7 +1,7 @@
 #pragma once
-#include "Core.h"
-#include "Events/Event.h"
-#include "Core/Timestep.h"
+#include "JLHE/Core/Core.h"
+#include "JLHE/Events/Event.h"
+#include "JLHE/Core/Timestep.h"
 
 //TEMP
 #include <string>

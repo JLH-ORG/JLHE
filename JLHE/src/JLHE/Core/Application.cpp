@@ -1,12 +1,12 @@
 #include "jlhepch.h"
 #include "Application.h"
 
-#include "JLHE/Log.h"
+#include "JLHE/Core/Log.h"
 
 #include <glad/glad.h>
 #include "JLHE/Renderer/Renderer.h"
 
-#include "JLHE/Input.h"
+#include "JLHE/Core/Input.h"
 
 #include <GLFW/glfw3.h>
 

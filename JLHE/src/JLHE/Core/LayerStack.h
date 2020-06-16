@@ -1,7 +1,7 @@
 #pragma once
 
-#include "JLHE/Core.h"
-#include "JLHE/Layer.h"
+#include "JLHE/Core/Core.h"
+#include "JLHE/Core/Layer.h"
 
 #include <vector>
 

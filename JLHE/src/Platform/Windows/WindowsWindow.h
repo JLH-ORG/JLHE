@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JLHE/Window.h"
+#include "JLHE/Core/Window.h"
 #include "JLHE/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

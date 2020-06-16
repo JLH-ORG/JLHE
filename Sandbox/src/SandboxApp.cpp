@@ -1,7 +1,10 @@
 #include <JLHE.h>
+#include <JLHE/Core/EntryPoint.h>
 #include <Platform/OpenGL/OpenGLShader.h>
 
 #include <imgui/imgui.h>
+
+#include "Sandbox2D.h"
 
 // TEMPORARY
 #include <glm/gtc/matrix_transform.hpp>
@@ -11,7 +14,7 @@ class ExampleLayer : public JLHE::Layer {
 public:
 	ExampleLayer() 
 		: Layer("Example"), m_CameraController(1280.0f / 720.0f, true), m_TrianglePosition(0.0f) {
-		m_VertexArray.reset(JLHE::VertexArray::Create());
+		m_VertexArray = JLHE::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -20,7 +23,7 @@ public:
 		};
 
 		JLHE::Ref<JLHE::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(JLHE::VertexBuffer::Create(vertices, sizeof(vertices)));
+		vertexBuffer = JLHE::VertexBuffer::Create(vertices, sizeof(vertices));
 
 		JLHE::BufferLayout layout = {
 			{ JLHE::ShaderDataType::Float3, "a_Position" },
@@ -31,7 +34,7 @@ public:
 
 		uint32_t indices[3] = { 0, 1, 2 };
 		JLHE::Ref<JLHE::IndexBuffer> indexBuffer;
-		indexBuffer.reset(JLHE::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = JLHE::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		std::string vertexSrc = R"(
@@ -68,7 +71,7 @@ public:
 
 		//----------------------------------------------------------
 
-		m_SquareVA.reset(JLHE::VertexArray::Create());
+		m_SquareVA = JLHE::VertexArray::Create();
 		
 		float squareVertices[4 * 5] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -78,7 +81,7 @@ public:
 		};
 		
 		JLHE::Ref<JLHE::VertexBuffer> squareVertexBuffer;
-		squareVertexBuffer.reset(JLHE::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVertexBuffer = JLHE::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		
 		squareVertexBuffer->SetLayout({
 			{ JLHE::ShaderDataType::Float3, "a_Position" },
@@ -88,7 +91,7 @@ public:
 		
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 		JLHE::Ref<JLHE::IndexBuffer> squareIndexBuffer;
-		squareIndexBuffer.reset(JLHE::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIndexBuffer = JLHE::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIndexBuffer);
 		
 		//m_TextureShader = JLHE::Shader::Create("Assets/Shaders/Texture.glsl");
@@ -150,7 +153,8 @@ private:
 class Sandbox : public JLHE::Application {
 public:
 	Sandbox() {
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox() {

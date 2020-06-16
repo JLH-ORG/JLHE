@@ -1,8 +1,8 @@
 #include "jlhepch.h"
 #include "OrthographicCameraController.h"
 
-#include "JLHE/Input.h"
-#include "JLHE/KeyCodes.h"
+#include "JLHE/Core/Input.h"
+#include "JLHE/Core/KeyCodes.h"
 
 namespace JLHE {
 

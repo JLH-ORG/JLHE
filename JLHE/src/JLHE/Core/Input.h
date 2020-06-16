@@ -1,7 +1,7 @@
 #pragma once
 
 #include "jlhepch.h"
-#include "JLHE/Core.h"
+#include "JLHE/Core/Core.h"
 
 namespace JLHE {
 

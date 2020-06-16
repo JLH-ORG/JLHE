@@ -57,17 +57,38 @@
     <ClInclude Include="src\JLHE.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Application.h">
-      <Filter>src\JLHE</Filter>
+    <ClInclude Include="src\JLHE\Core\Application.h">
+      <Filter>src\JLHE\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Core.h">
-      <Filter>src\JLHE</Filter>
+    <ClInclude Include="src\JLHE\Core\Core.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\EntryPoint.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\Input.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\KeyCodes.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\Layer.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\LayerStack.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\Log.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Core\MouseButtonCodes.h">
+      <Filter>src\JLHE\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\Core\Timestep.h">
       <Filter>src\JLHE\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\EntryPoint.h">
-      <Filter>src\JLHE</Filter>
+    <ClInclude Include="src\JLHE\Core\Window.h">
+      <Filter>src\JLHE\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h">
       <Filter>src\JLHE\Events</Filter>
@@ -84,24 +105,6 @@
     <ClInclude Include="src\JLHE\ImGui\ImGuiLayer.h">
       <Filter>src\JLHE\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Input.h">
-      <Filter>src\JLHE</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\KeyCodes.h">
-      <Filter>src\JLHE</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\Layer.h">
-      <Filter>src\JLHE</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\LayerStack.h">
-      <Filter>src\JLHE</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\Log.h">
-      <Filter>src\JLHE</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\MouseButtonCodes.h">
-      <Filter>src\JLHE</Filter>
-    </ClInclude>
     <ClInclude Include="src\JLHE\Renderer\Buffer.h">
       <Filter>src\JLHE\Renderer</Filter>
     </ClInclude>
@@ -109,6 +112,9 @@
       <Filter>src\JLHE\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\Renderer\OrthographicCamera.h">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Renderer\OrthographicCameraController.h">
       <Filter>src\JLHE\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\Renderer\RenderCommand.h">
@@ -128,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="src\JLHE\Renderer\VertexArray.h">
       <Filter>src\JLHE\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\JLHE\Window.h">
-      <Filter>src\JLHE</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1386,11 +1389,19 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\JLHE\Application.cpp">
-      <Filter>src\JLHE</Filter>
+    <ClCompile Include="src\JLHE\Core\Application.cpp">
+      <Filter>src\JLHE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JLHE\Core\Layer.cpp">
+      <Filter>src\JLHE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JLHE\Core\LayerStack.cpp">
+      <Filter>src\JLHE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JLHE\Core\Log.cpp">
+      <Filter>src\JLHE\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp">
       <Filter>src\JLHE\ImGui</Filter>
@@ -1398,19 +1409,13 @@
     <ClCompile Include="src\JLHE\ImGui\ImGuiLayer.cpp">
       <Filter>src\JLHE\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\JLHE\Layer.cpp">
-      <Filter>src\JLHE</Filter>
-    </ClCompile>
-    <ClCompile Include="src\JLHE\LayerStack.cpp">
-      <Filter>src\JLHE</Filter>
-    </ClCompile>
-    <ClCompile Include="src\JLHE\Log.cpp">
-      <Filter>src\JLHE</Filter>
-    </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\Buffer.cpp">
       <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\OrthographicCamera.cpp">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JLHE\Renderer\OrthographicCameraController.cpp">
       <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\Renderer.cpp">
@@ -1461,6 +1466,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\JLHE\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

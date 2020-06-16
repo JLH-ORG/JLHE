@@ -2,7 +2,7 @@
 
 #include "jlhepch.h"
 
-#include "JLHE/Core.h"
+#include "JLHE/Core/Core.h"
 #include "JLHE/Events/Event.h"
 
 namespace JLHE {

@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "JLHE/Core.h"
+#include "JLHE/Core/Core.h"
 
 namespace JLHE {
 

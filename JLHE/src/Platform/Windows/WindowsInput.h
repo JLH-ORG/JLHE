@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JLHE/Input.h"
+#include "JLHE/Core/Input.h"
 
 namespace JLHE {
 
