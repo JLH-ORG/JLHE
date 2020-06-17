@@ -23,7 +23,6 @@ namespace JLHE {
 	private:
 		bool OnMouseScrolled(MouseScrolledEvent& e);
 		bool OnWindowResized(WindowResizeEvent& e);
-
 	private:
 		float m_AspectRatio;
 		float m_ZoomLevel = 1.0f;

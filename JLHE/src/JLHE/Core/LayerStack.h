@@ -6,9 +6,10 @@
 #include <vector>
 
 namespace JLHE {
+
 	class LayerStack {
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);
@@ -16,6 +17,7 @@ namespace JLHE {
 		void PopLayer(Layer* layer);
 		void PopOverlay(Layer* layer);
 
+	public:
 		std::vector<Layer*>::iterator begin() { return m_Layers.begin(); }
 		std::vector<Layer*>::iterator end() { return m_Layers.end(); }
 	private:

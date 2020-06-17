@@ -9,8 +9,8 @@
 namespace JLHE {
 
 	OpenGlContext::OpenGlContext(GLFWwindow* windowHandle)
-		:m_WindowHandle(windowHandle) {
-		// TODO: Validation of m_WindowHandle
+		: m_WindowHandle(windowHandle) 
+	{
 		JLHE_CORE_ASSERT(windowHandle, "Window Handle is Null")
 	}
 

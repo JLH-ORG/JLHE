@@ -5,7 +5,8 @@
 
 namespace JLHE {
 
-	// Vertex Buffer Methods
+	// **VERTEX BUFFER IMPLS** //
+
 	OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, uint32_t size) {
 		glCreateBuffers(1, &m_RendererID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
@@ -24,7 +25,8 @@ namespace JLHE {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	// Index Buffer Members
+	// **INDEX BUFFER IMPLS** //
+	
 	OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* indices, uint32_t count)
 		: m_Count(count) {
 		glCreateBuffers(1, &m_RendererID);
