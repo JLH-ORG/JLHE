@@ -24,7 +24,6 @@ public:
 
 		JLHE::Ref<JLHE::VertexBuffer> vertexBuffer;
 		vertexBuffer = JLHE::VertexBuffer::Create(vertices, sizeof(vertices));
-
 		JLHE::BufferLayout layout = {
 			{ JLHE::ShaderDataType::Float3, "a_Position" },
 			{ JLHE::ShaderDataType::Float4, "a_Color" }

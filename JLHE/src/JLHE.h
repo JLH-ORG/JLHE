@@ -16,12 +16,15 @@
 #include "JLHE/Core/Timestep.h"
 
 
-// == RENDERER ==============
-#include "JLHE/Renderer/Buffer.h"
-#include "JLHE/Renderer/Texture.h"
-#include "JLHE/Renderer/OrthographicCamera.h"
-#include "JLHE/Renderer/RenderCommand.h"
+// == RENDERER ==================================
 #include "JLHE/Renderer/Renderer.h"
+#include "JLHE/Renderer/Renderer2D.h"
+#include "JLHE/Renderer/RenderCommand.h"
+
+#include "JLHE/Renderer/Buffer.h"
 #include "JLHE/Renderer/Shader.h"
+#include "JLHE/Renderer/Texture.h"
 #include "JLHE/Renderer/VertexArray.h"
-// ==========================
+
+#include "JLHE/Renderer/OrthographicCamera.h"
+// ==============================================

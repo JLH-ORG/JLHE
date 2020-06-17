@@ -3,12 +3,15 @@
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
+#include "JLHE/Renderer/Renderer2D.h"
+
 namespace JLHE {
 
-	Renderer::SceneData* Renderer::m_SceneData = new Renderer::SceneData;
+	Scope<Renderer::SceneData> Renderer::s_SceneData = CreateScope<Renderer::SceneData>();
 
 	void Renderer::Init() {
 		RenderCommand::Init();
+		Renderer2D::Init();
 	}
 
 	void Renderer::OnWindowResize(uint32_t width, uint32_t height) {
@@ -16,7 +19,7 @@ namespace JLHE {
 	}
 
 	void Renderer::BeginScene(OrthographicCamera& camera) {
-		m_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
+		s_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
 	}
 
 	void Renderer::EndScene() {
@@ -25,7 +28,7 @@ namespace JLHE {
 
 	void Renderer::Submit(const JLHE::Ref<VertexArray>& vertexArray, const JLHE::Ref<Shader>& shader, const glm::mat4& transform) {
 		shader->Bind();
-		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_ViewProjectionMatrix", m_SceneData->ViewProjectionMatrix);
+		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_ViewProjectionMatrix", s_SceneData->ViewProjectionMatrix);
 		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_Transform", transform);
 
 		vertexArray->Bind();

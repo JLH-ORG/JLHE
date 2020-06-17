@@ -18,4 +18,5 @@ namespace JLHE {
 		uint32_t m_Width, m_Height;
 		uint32_t m_RendererID;
 	};
+
 }

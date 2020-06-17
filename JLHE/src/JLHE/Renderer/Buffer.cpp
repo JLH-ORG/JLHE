@@ -13,7 +13,7 @@ namespace JLHE {
 				JLHE_CORE_ASSERT(false, "Renderer API None is not supported");
 				return nullptr;
 		case RendererAPI::API::OpenGL:
-				return std::make_shared<OpenGLVertexBuffer>(vertices, size);
+				return CreateRef<OpenGLVertexBuffer>(vertices, size);
 		}
 
 		JLHE_CORE_ASSERT(false, "Unknown Renderer API");
@@ -26,7 +26,7 @@ namespace JLHE {
 				JLHE_CORE_ASSERT(false, "Renderer API None is not supported");
 				return nullptr;
 		case RendererAPI::API::OpenGL:
-				return std::make_shared<OpenGLIndexBuffer>(indices, size);
+				return CreateRef<OpenGLIndexBuffer>(indices, size);
 		}
 
 		JLHE_CORE_ASSERT(false, "Unknown Renderer API");

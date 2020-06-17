@@ -141,8 +141,10 @@ namespace JLHE {
 			return;
 		}
 
-		for (auto id : glShaderIDs)
+		for (auto id : glShaderIDs) {
 			glDetachShader(program, id);
+			glDeleteShader(id);
+		}
 	}
 
 	OpenGLShader::~OpenGLShader() {

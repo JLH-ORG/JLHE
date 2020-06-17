@@ -163,6 +163,7 @@
     <ClInclude Include="src\JLHE\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\JLHE\Renderer\RenderCommand.h" />
     <ClInclude Include="src\JLHE\Renderer\Renderer.h" />
+    <ClInclude Include="src\JLHE\Renderer\Renderer2D.h" />
     <ClInclude Include="src\JLHE\Renderer\RendererAPI.h" />
     <ClInclude Include="src\JLHE\Renderer\Shader.h" />
     <ClInclude Include="src\JLHE\Renderer\Texture.h" />
@@ -597,6 +598,7 @@
     <ClCompile Include="src\JLHE\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\JLHE\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\JLHE\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\JLHE\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\JLHE\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Shader.cpp" />
