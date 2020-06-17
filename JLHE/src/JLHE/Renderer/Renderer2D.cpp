@@ -7,6 +7,8 @@
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
+#include <glm/gtc/matrix_transform.hpp>
+
 namespace JLHE {
 
 	struct Renderer2DStorage {
@@ -20,7 +22,7 @@ namespace JLHE {
 		s_Data = new Renderer2DStorage();
 		s_Data->QuadVertexArray = VertexArray::Create();
 
-		float squareVertices[5 * 4] = {
+		float squareVertices[3 * 4] = {
 			-0.5f, -0.5f, 0.0f,
 			 0.5f, -0.5f, 0.0f,
 			 0.5f,  0.5f, 0.0f,
@@ -39,7 +41,7 @@ namespace JLHE {
 		squareIB = IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		s_Data->QuadVertexArray->SetIndexBuffer(squareIB);
 
-		s_Data->FlatColourShader = Shader::Create("assets/shaders/FlatColor.glsl");
+		s_Data->FlatColourShader = Shader::Create("Assets/Shaders/FlatColor.glsl");
 	}
 
 	void Renderer2D::Shutdown() {
@@ -47,9 +49,8 @@ namespace JLHE {
 	}
 	
 	void Renderer2D::BeginScene(const OrthographicCamera& camera) {
-		std::dynamic_pointer_cast<OpenGLShader>(s_Data->FlatColourShader)->Bind();
-		std::dynamic_pointer_cast<OpenGLShader>(s_Data->FlatColourShader)->UploadUniformMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
-		std::dynamic_pointer_cast<OpenGLShader>(s_Data->FlatColourShader)->UploadUniformMat4("u_Transform", glm::mat4(1.0f));
+		s_Data->FlatColourShader->Bind();
+		s_Data->FlatColourShader->SetMat4("u_ViewProjectionMatrix", camera.GetViewProjectionMatrix());
 	}
 	
 	void Renderer2D::EndScene() {
@@ -61,8 +62,10 @@ namespace JLHE {
 	}
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4 colour) {
-		std::dynamic_pointer_cast<OpenGLShader>(s_Data->FlatColourShader)->Bind();
-		std::dynamic_pointer_cast<OpenGLShader>(s_Data->FlatColourShader)->UploadUniformFloat4("u_Color", colour);
+		s_Data->FlatColourShader->Bind();
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
+		s_Data->FlatColourShader->SetFloat4("u_Color", colour);
+		s_Data->FlatColourShader->SetMat4("u_Transform", transform);
 
 		s_Data->QuadVertexArray->Bind();
 		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);
