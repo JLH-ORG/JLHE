@@ -10,7 +10,7 @@ Sandbox2D::Sandbox2D()
 
 
 void Sandbox2D::OnAttach() {
-
+	m_CheckerboardTexture = JLHE::Texture2D::Create("Assets/Textures/Checkerboard.png");
 }
 
 void Sandbox2D::OnDetach() {}
@@ -27,6 +27,7 @@ void Sandbox2D::OnUpdate(JLHE::Timestep ts) {
 	JLHE::Renderer2D::BeginScene(m_CameraController.GetCamera()); 
 	JLHE::Renderer2D::DrawQuad({ -1.0f, -1.0f }, { 1.0f, 1.0f }, m_SquareColor);
 	JLHE::Renderer2D::DrawQuad({ 1.0f, 1.0f }, { 0.5f, 1.0f }, m_SquareColor);
+	JLHE::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerboardTexture);
 	JLHE::Renderer2D::EndScene();
 }
 
