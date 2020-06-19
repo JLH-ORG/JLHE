@@ -18,6 +18,8 @@ namespace JLHE {
 
 	Application::Application()
 		: m_LastTime(0.0f) {
+		JLHE_PROFILE_FUNCTION();
+
 		JLHE_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 		m_Window = JLHE::Scope<Window>(Window::Create());
@@ -29,15 +31,29 @@ namespace JLHE {
 		PushOverlay(m_ImGuiLayer);
 	}
 
+	Application::~Application() {
+		JLHE_PROFILE_FUNCTION();
+
+		Renderer::Shutdown();
+	}
+
 	void Application::PushLayer(Layer* layer) {
+		JLHE_PROFILE_FUNCTION();
+
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay) {
+		JLHE_PROFILE_FUNCTION();
+
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e) {
+		JLHE_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
@@ -50,20 +66,26 @@ namespace JLHE {
 	}
 
 	void Application::Run() {
+		JLHE_PROFILE_FUNCTION();
+
 		while (m_Running) {
 			float time = glfwGetTime();
 			Timestep timestep = time - m_LastTime;
 			m_LastTime = time;
 			
 			if (!m_Minimized) {
+				JLHE_PROFILE_SCOPE("Updating Layers")
 				for (Layer* layer : m_LayerStack)
 				layer->OnUpdate(timestep);
 			}
 
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
-			m_ImGuiLayer->End();
+			{
+				JLHE_PROFILE_SCOPE("LayerStack OnImGUIRender");
+				m_ImGuiLayer->Begin();
+				for (Layer* layer : m_LayerStack)
+					layer->OnImGuiRender();
+				m_ImGuiLayer->End();
+			}
 
 			m_Window->OnUpdate();
 		}
@@ -75,6 +97,8 @@ namespace JLHE {
 	}
 
 	bool Application::OnWindowResize(WindowResizeEvent& e) {
+		JLHE_PROFILE_FUNCTION();
+
 		if (e.GetWidth() == 0 || e.GetHeight() == 0) {
 			m_Minimized = true;
 			return false;
@@ -85,5 +109,4 @@ namespace JLHE {
 
 		return false;
 	}
-
 }

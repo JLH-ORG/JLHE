@@ -27,10 +27,14 @@ namespace JLHE {
 	}
 
 	WindowsWindow::~WindowsWindow() {
+		JLHE_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props) {
+		JLHE_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -39,6 +43,7 @@ namespace JLHE {
 
 
 		if (!s_GLFWInitialized) {
+			JLHE_PROFILE_SCOPE("glfwInit");
 			// TODO: glfwTerminate on system shutdown.
 			int success = glfwInit();
 			JLHE_CORE_ASSERT(success, "Could not initalize GLFW!");
@@ -46,7 +51,10 @@ namespace JLHE {
 			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		{
+			JLHE_PROFILE_SCOPE("glfwCreateWindow");
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		}
 
 		m_Context = CreateScope<OpenGlContext>(m_Window);
 		m_Context->Init();
@@ -130,16 +138,21 @@ namespace JLHE {
 	}
 
 	void WindowsWindow::Shutdown() {
+		JLHE_PROFILE_FUNCTION();
 		glfwDestroyWindow(m_Window);
 	}
 
 	void WindowsWindow::OnUpdate() {
+		JLHE_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled) {
+		JLHE_PROFILE_FUNCTION();
+
 		enabled ? glfwSwapInterval(1) : glfwSwapInterval(0);
 		m_Data.VSync = enabled;
 	}

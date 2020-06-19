@@ -152,6 +152,7 @@
     <ClInclude Include="src\JLHE\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\JLHE\Core\Timestep.h" />
     <ClInclude Include="src\JLHE\Core\Window.h" />
+    <ClInclude Include="src\JLHE\Debug\Instrumentor.h" />
     <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h" />
     <ClInclude Include="src\JLHE\Events\Event.h" />
     <ClInclude Include="src\JLHE\Events\KeyEvent.h" />
@@ -631,4 +632,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>

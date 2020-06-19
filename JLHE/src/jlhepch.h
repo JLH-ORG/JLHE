@@ -14,6 +14,7 @@
 #include <unordered_set>
 
 #include "JLHE/Core/Log.h"
+#include "JLHE/Debug/Instrumentor.h"
 
 #ifdef JLHE_PLATFORM_WINDOWS
 	#include <Windows.h>

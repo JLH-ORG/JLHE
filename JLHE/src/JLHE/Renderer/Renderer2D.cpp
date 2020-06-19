@@ -20,6 +20,8 @@ namespace JLHE {
 	static Renderer2DStorage* s_Data;
 
 	void Renderer2D::Init() {
+		JLHE_PROFILE_FUNCTION();
+
 		s_Data = new Renderer2DStorage();
 		s_Data->QuadVertexArray = VertexArray::Create();
 
@@ -53,16 +55,20 @@ namespace JLHE {
 	}
 
 	void Renderer2D::Shutdown() {
+		JLHE_PROFILE_FUNCTION();
+
 		delete s_Data;
 	}
 	
 	void Renderer2D::BeginScene(const OrthographicCamera& camera) {
+		JLHE_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->Bind();
 		s_Data->TextureShader->SetMat4("u_ViewProjectionMatrix", camera.GetViewProjectionMatrix());
 	}
 	
 	void Renderer2D::EndScene() {
-
+		JLHE_PROFILE_FUNCTION();
 	}
 	
 	void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4 colour) {
@@ -70,6 +76,8 @@ namespace JLHE {
 	}
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4 colour) {
+		JLHE_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", colour);
 		s_Data->WhiteTexture->Bind();
 		
@@ -85,6 +93,8 @@ namespace JLHE {
 	}
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const Ref<Texture2D>& texture) {
+		JLHE_PROFILE_FUNCTION();
+		
 		s_Data->TextureShader->SetFloat4("u_Color", glm::vec4(1));
 		texture->Bind();
 

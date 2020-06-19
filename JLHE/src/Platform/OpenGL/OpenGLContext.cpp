@@ -15,6 +15,8 @@ namespace JLHE {
 	}
 
 	void OpenGlContext::Init() {
+		JLHE_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		JLHE_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -26,8 +28,9 @@ namespace JLHE {
 	}
 
 	void OpenGlContext::SwapBuffers() {
+		JLHE_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
-
 }
 

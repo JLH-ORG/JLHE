@@ -17,6 +17,8 @@ namespace JLHE {
 		: Layer("ImGuiLayer") {}
 
 	void ImGuiLayer::OnAttach() {
+		JLHE_PROFILE_FUNCTION();
+
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -48,18 +50,24 @@ namespace JLHE {
 	}
 	
 	void ImGuiLayer::OnDetach() {
+		JLHE_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
 	}
 
 	void ImGuiLayer::Begin() {
+		JLHE_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 	}
 
 	void ImGuiLayer::End() {
+		JLHE_PROFILE_FUNCTION();
+
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());

@@ -26,22 +26,32 @@ namespace JLHE {
 	}
 
 	OpenGLVertexArray::OpenGLVertexArray() {
+		JLHE_PROFILE_FUNCTION();
+
 		glCreateVertexArrays(1, &m_RendererID);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray() {
+		JLHE_PROFILE_FUNCTION();
+
 		glDeleteVertexArrays(1, &m_RendererID);
 	}
 
 	void OpenGLVertexArray::Bind() const {
+		JLHE_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 	}
 
 	void OpenGLVertexArray::Unbind() const {
+		JLHE_PROFILE_FUNCTION();
+
 		glBindVertexArray(0);
 	}
 
 	void OpenGLVertexArray::AddVertexBuffer(const JLHE::Ref<VertexBuffer>& vertexBuffer) {
+		JLHE_PROFILE_FUNCTION();
+		
 		JLHE_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no Layout");
 
 		glBindVertexArray(m_RendererID);
@@ -65,6 +75,8 @@ namespace JLHE {
 	}
 
 	void OpenGLVertexArray::SetIndexBuffer(const JLHE::Ref<IndexBuffer>& indexBuffer) {
+		JLHE_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();
 
