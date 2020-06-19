@@ -181,6 +181,13 @@ namespace JLHE {
 		UploadUniformInt(name, value);
 	}
 
+	void OpenGLShader::SetFloat(const std::string& name, const float value)
+	{
+		JLHE_PROFILE_FUNCTION();
+
+		UploadUniformFloat(name, value);
+	}
+
 	void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& value) {
 		JLHE_PROFILE_FUNCTION();
 

@@ -10,6 +10,9 @@
     <Filter Include="src\JLHE\Core">
       <UniqueIdentifier>{97F7284C-03B8-A482-CCF2-EDFF3872E95E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\JLHE\Debug">
+      <UniqueIdentifier>{954554D1-8113-48D7-6AA7-B8FD5614243C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\JLHE\Events">
       <UniqueIdentifier>{E34A67FF-4FD6-D4C3-58E7-57B8C4F130C4}</UniqueIdentifier>
     </Filter>
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="src\JLHE\Core\Window.h">
       <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JLHE\Debug\Instrumentor.h">
+      <Filter>src\JLHE\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\Events\ApplicatonEvent.h">
       <Filter>src\JLHE\Events</Filter>
@@ -1392,7 +1398,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Core\Application.cpp">
