@@ -1,4 +1,4 @@
-#include "Sandbox2D.h"
+ #include "Sandbox2D.h"
 
 #include <imgui/imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
@@ -33,9 +33,9 @@ void Sandbox2D::OnUpdate(JLHE::Timestep ts) {
 		JLHE_PROFILE_SCOPE("Render Draw");
 		JLHE::Renderer2D::BeginScene(m_CameraController.GetCamera()); 
 		JLHE::Renderer2D::DrawQuad({ -1.0f, -1.0f }, { 1.0f, 1.0f }, m_SquareColor);
-		JLHE::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f, -0.1f }, { 1.0f, 1.0f }, glm::radians(-45.0f), m_SquareColor);
+		//JLHE::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f, -0.1f }, { 1.0f, 1.0f }, glm::radians(-45.0f), m_SquareColor);
 		JLHE::Renderer2D::DrawQuad({ 1.0f, 1.0f }, { 0.5f, 1.0f }, m_SquareColor);
-		JLHE::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, glm::radians(45.0f), m_CheckerboardTexture, 10.0f, glm::vec4(1.0f, 0.9f, 0.9f, 1.0f));
+		//JLHE::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, glm::radians(45.0f), m_CheckerboardTexture, 10.0f, glm::vec4(1.0f, 0.9f, 0.9f, 1.0f));
 		JLHE::Renderer2D::EndScene();
 	}
 }

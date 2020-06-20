@@ -7,6 +7,14 @@ namespace JLHE {
 
 	// ***VERTEX BUFFER IMPLS*** //
 
+	OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size) {
+		JLHE_PROFILE_FUNCTION();
+
+		glCreateBuffers(1, &m_RendererID);
+		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+		glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_STATIC_DRAW);
+	}
+
 	OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, uint32_t size) {
 		JLHE_PROFILE_FUNCTION();
 
@@ -31,6 +39,11 @@ namespace JLHE {
 		JLHE_PROFILE_FUNCTION();
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
+	}
+
+	void OpenGLVertexBuffer::SetData(const void* Data, uint32_t size) {
+		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+		glBufferSubData(GL_ARRAY_BUFFER, 0, size, Data);
 	}
 
 	// ***INDEX BUFFER IMPLS*** //
