@@ -5,3 +5,6 @@ bin-int/
 
 # Files
 *.user
+JLHE-Profile-Runtime.json
+JLHE-Profile-Shutdown.json
+JLHE-Profile.Startup.json
