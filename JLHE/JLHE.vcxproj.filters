@@ -1399,6 +1399,7 @@
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="src\JLHE\Core\Random.h" />
+    <ClInclude Include="src\JLHE\Renderer\SubTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Core\Application.cpp">
@@ -1480,5 +1481,6 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\Core\Random.cpp" />
+    <ClCompile Include="src\JLHE\Renderer\SubTexture2D.cpp" />
   </ItemGroup>
 </Project>

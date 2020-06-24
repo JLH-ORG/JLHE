@@ -19,5 +19,6 @@ private:
 	// TEMPORARY
 	JLHE::Ref<JLHE::VertexArray> m_SquareVA;
 	JLHE::Ref<JLHE::Texture2D> m_CheckerboardTexture;
+	JLHE::Ref<JLHE::SubTexture2D> m_SubTexture;
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };

@@ -168,6 +168,7 @@
     <ClInclude Include="src\JLHE\Renderer\Renderer2D.h" />
     <ClInclude Include="src\JLHE\Renderer\RendererAPI.h" />
     <ClInclude Include="src\JLHE\Renderer\Shader.h" />
+    <ClInclude Include="src\JLHE\Renderer\SubTexture2D.h" />
     <ClInclude Include="src\JLHE\Renderer\Texture.h" />
     <ClInclude Include="src\JLHE\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
@@ -605,6 +606,7 @@
     <ClCompile Include="src\JLHE\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\JLHE\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Shader.cpp" />
+    <ClCompile Include="src\JLHE\Renderer\SubTexture2D.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Texture.cpp" />
     <ClCompile Include="src\JLHE\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />

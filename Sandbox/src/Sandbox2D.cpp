@@ -13,6 +13,7 @@ void Sandbox2D::OnAttach() {
 	JLHE_PROFILE_FUNCTION();
 
 	m_CheckerboardTexture = JLHE::Texture2D::Create("Assets/Textures/Checkerboard.png");
+	m_SubTexture = JLHE::SubTexture2D::CreateFromCoords(m_CheckerboardTexture, { 0, 0 }, { 8, 8 }, { 1, 2 });
 }
 
 void Sandbox2D::OnDetach() {
@@ -46,6 +47,8 @@ void Sandbox2D::OnUpdate(JLHE::Timestep ts) {
 				JLHE::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
 			}
 		}
+
+		JLHE::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.7f }, { 1, 2 }, m_SubTexture);
 		JLHE::Renderer2D::EndScene();
 	}
 }
