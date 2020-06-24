@@ -150,6 +150,7 @@
     <ClInclude Include="src\JLHE\Core\LayerStack.h" />
     <ClInclude Include="src\JLHE\Core\Log.h" />
     <ClInclude Include="src\JLHE\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\JLHE\Core\Random.h" />
     <ClInclude Include="src\JLHE\Core\Timestep.h" />
     <ClInclude Include="src\JLHE\Core\Window.h" />
     <ClInclude Include="src\JLHE\Debug\Instrumentor.h" />
@@ -593,6 +594,7 @@
     <ClCompile Include="src\JLHE\Core\Layer.cpp" />
     <ClCompile Include="src\JLHE\Core\LayerStack.cpp" />
     <ClCompile Include="src\JLHE\Core\Log.cpp" />
+    <ClCompile Include="src\JLHE\Core\Random.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\JLHE\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\JLHE\Renderer\Buffer.cpp" />

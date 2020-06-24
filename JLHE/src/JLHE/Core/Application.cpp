@@ -8,6 +8,8 @@
 
 #include "JLHE/Core/Input.h"
 
+#include "JLHE/Core/Random.h"
+
 #include <GLFW/glfw3.h>
 
 namespace JLHE {
@@ -25,6 +27,7 @@ namespace JLHE {
 		m_Window = JLHE::Scope<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
+		Random::Init();
 		Renderer::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();

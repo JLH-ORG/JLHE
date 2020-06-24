@@ -13,8 +13,9 @@
 
 #include "JLHE/ImGui/ImGuiLayer.h"
 
-#include "JLHE/Core/Timestep.h"
+#include "JLHE/Core/Random.h"
 
+#include "JLHE/Core/Timestep.h"
 
 // == RENDERER ==================================
 #include "JLHE/Renderer/Renderer.h"
