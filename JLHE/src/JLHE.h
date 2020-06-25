@@ -23,6 +23,7 @@
 #include "JLHE/Renderer/RenderCommand.h"
 
 #include "JLHE/Renderer/Buffer.h"
+#include "JLHE/Renderer/Framebuffer.h"
 #include "JLHE/Renderer/Shader.h"
 #include "JLHE/Renderer/Texture.h"
 #include "JLHE/Renderer/VertexArray.h"

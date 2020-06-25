@@ -14,6 +14,11 @@ void Sandbox2D::OnAttach() {
 
 	m_CheckerboardTexture = JLHE::Texture2D::Create("Assets/Textures/Checkerboard.png");
 	m_SubTexture = JLHE::SubTexture2D::CreateFromCoords(m_CheckerboardTexture, { 0, 0 }, { 8, 8 }, { 1, 2 });
+
+	JLHE::FramebufferSpecification fbSpec;
+	fbSpec.Height = 720;
+	fbSpec.Width = 1280;
+	m_Framebuffer = JLHE::Framebuffer::Create(fbSpec);
 }
 
 void Sandbox2D::OnDetach() {
@@ -29,6 +34,7 @@ void Sandbox2D::OnUpdate(JLHE::Timestep ts) {
 	m_CameraController.OnUpdate(ts);
 
 	// Render
+	m_Framebuffer->Bind();
 	JLHE::RenderCommand::SetClearColour({ 0.1f, 0.1f, 0.1f, 1.0f });
 	JLHE::RenderCommand::Clear();
 
@@ -50,6 +56,7 @@ void Sandbox2D::OnUpdate(JLHE::Timestep ts) {
 
 		JLHE::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.7f }, { 1, 2 }, m_SubTexture);
 		JLHE::Renderer2D::EndScene();
+		m_Framebuffer->Unbind();
 	}
 }
 
@@ -64,8 +71,7 @@ void Sandbox2D::OnImGuiRender() {
     // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
     // because it would be confusing to have two docking targets within each others.
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
-    if (opt_fullscreen)
-    {
+    if (opt_fullscreen) {
         ImGuiViewport* viewport = ImGui::GetMainViewport();
         ImGui::SetNextWindowPos(viewport->GetWorkPos());
         ImGui::SetNextWindowSize(viewport->GetWorkSize());
@@ -126,8 +132,8 @@ void Sandbox2D::OnImGuiRender() {
 
     ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
-    uint32_t textureID = m_CheckerboardTexture->GetRendererID();
-    ImGui::Image((void*)textureID, ImVec2{ 64.0f, 64.0f });
+    uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+    ImGui::Image((void*)textureID, ImVec2{ 1280.0f, 720.0f });
     ImGui::End();
     ImGui::End();
 }

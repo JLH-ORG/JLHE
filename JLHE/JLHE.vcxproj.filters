@@ -1400,6 +1400,8 @@
     </ClInclude>
     <ClInclude Include="src\JLHE\Core\Random.h" />
     <ClInclude Include="src\JLHE\Renderer\SubTexture2D.h" />
+    <ClInclude Include="src\JLHE\Renderer\Framebuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Core\Application.cpp">
@@ -1482,5 +1484,7 @@
     </ClCompile>
     <ClCompile Include="src\JLHE\Core\Random.cpp" />
     <ClCompile Include="src\JLHE\Renderer\SubTexture2D.cpp" />
+    <ClCompile Include="src\JLHE\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>
