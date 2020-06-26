@@ -30,10 +30,10 @@ namespace JLHE {
 	void EditorLayer::OnUpdate(JLHE::Timestep ts) {
 		JLHE_PROFILE_FUNCTION();
 
-		JLHE::Renderer2D::ResetStats();
+		if (m_ViewportFocused)
+			m_CameraController.OnUpdate(ts);
 
-		// Update
-		m_CameraController.OnUpdate(ts);
+		JLHE::Renderer2D::ResetStats();
 
 		// Render
 		m_Framebuffer->Bind();
@@ -134,11 +134,15 @@ namespace JLHE {
 
 		ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
-		
 		ImGui::End();
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
 		ImGui::Begin("Viewport");
+		
+		m_ViewportFocused = ImGui::IsWindowFocused();
+		m_ViewportHovered = ImGui::IsWindowHovered();
+		Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportFocused || !m_ViewportHovered);
+
 		ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
 		if (m_ViewportSize != *((glm::vec2*) & viewportPanelSize))
 		{
