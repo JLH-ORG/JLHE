@@ -1,7 +1,7 @@
 workspace "JLHE"
 	architecture "x64"
 
-	startproject "Sandbox"
+	startproject "JLHE-Editor"
 
 	configurations {
 		"Debug",
@@ -92,6 +92,54 @@ project "JLHE"
 
 project "Sandbox"
 	location "Sandbox"
+		kind "ConsoleApp"
+		language "C++"
+		cppdialect "C++17"
+		staticruntime "on"
+
+		targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+		objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    
+		files {
+			"%{prj.name}/src/**.h",
+			"%{prj.name}/src/**.cpp"
+		}
+
+		includedirs {
+			"JLHE/src",
+			"JLHE/vendor/spdlog/include",
+			"JLHE/vendor",
+			"%{IncludeDir.glm}"
+		}
+
+		links {
+			"JLHE"
+		}
+
+	filter "system:windows"
+		systemversion "latest"
+		defines {
+			"JLHE_PLATFORM_WINDOWS"
+		}
+
+	filter "configurations:Debug"
+		defines "JLHE_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "JLHE_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "JLHE_DIST"
+		runtime "Release"
+		optimize "on"
+
+
+project "JLHE-Editor"
+	location "JLHE-Editor"
 		kind "ConsoleApp"
 		language "C++"
 		cppdialect "C++17"

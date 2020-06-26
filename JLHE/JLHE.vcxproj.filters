@@ -87,6 +87,9 @@
     <ClInclude Include="src\JLHE\Core\MouseButtonCodes.h">
       <Filter>src\JLHE\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Core\Random.h">
+      <Filter>src\JLHE\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\JLHE\Core\Timestep.h">
       <Filter>src\JLHE\Core</Filter>
     </ClInclude>
@@ -114,6 +117,9 @@
     <ClInclude Include="src\JLHE\Renderer\Buffer.h">
       <Filter>src\JLHE\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Renderer\Framebuffer.h">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\JLHE\Renderer\GraphicsContext.h">
       <Filter>src\JLHE\Renderer</Filter>
     </ClInclude>
@@ -138,6 +144,9 @@
     <ClInclude Include="src\JLHE\Renderer\Shader.h">
       <Filter>src\JLHE\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Renderer\SubTexture2D.h">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\JLHE\Renderer\Texture.h">
       <Filter>src\JLHE\Renderer</Filter>
     </ClInclude>
@@ -148,6 +157,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
@@ -1398,10 +1410,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\JLHE\Core\Random.h" />
-    <ClInclude Include="src\JLHE\Renderer\SubTexture2D.h" />
-    <ClInclude Include="src\JLHE\Renderer\Framebuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Core\Application.cpp">
@@ -1416,6 +1424,9 @@
     <ClCompile Include="src\JLHE\Core\Log.cpp">
       <Filter>src\JLHE\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\JLHE\Core\Random.cpp">
+      <Filter>src\JLHE\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\JLHE\ImGui\ImGuiBuild.cpp">
       <Filter>src\JLHE\ImGui</Filter>
     </ClCompile>
@@ -1423,6 +1434,9 @@
       <Filter>src\JLHE\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\Buffer.cpp">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JLHE\Renderer\Framebuffer.cpp">
       <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\OrthographicCamera.cpp">
@@ -1446,6 +1460,9 @@
     <ClCompile Include="src\JLHE\Renderer\Shader.cpp">
       <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\JLHE\Renderer\SubTexture2D.cpp">
+      <Filter>src\JLHE\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\JLHE\Renderer\Texture.cpp">
       <Filter>src\JLHE\Renderer</Filter>
     </ClCompile>
@@ -1456,6 +1473,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
@@ -1482,9 +1502,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\JLHE\Core\Random.cpp" />
-    <ClCompile Include="src\JLHE\Renderer\SubTexture2D.cpp" />
-    <ClCompile Include="src\JLHE\Renderer\Framebuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>
