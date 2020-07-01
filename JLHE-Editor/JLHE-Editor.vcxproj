@@ -142,6 +142,9 @@
       <Project>{68F0867C-5427-880D-FD13-6E10E929040F}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\JHLE offline\JLHE-Editor\Assets\Textures\tick.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -6,16 +6,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JLHEEditorApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="EditorLayer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
+    <ClCompile Include="src\EditorLayer.cpp" />
+    <ClCompile Include="src\JLHEEditorApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EditorLayer.h">
-      <Filter>src</Filter>
-    </ClInclude>
+    <ClInclude Include="src\EditorLayer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\JHLE offline\JLHE-Editor\Assets\Textures\tick.png" />
   </ItemGroup>
 </Project>

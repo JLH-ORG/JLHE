@@ -16,6 +16,7 @@
 #include "JLHE/Core/Random.h"
 
 #include "JLHE/Core/Timestep.h"
+#include "JLHE/Core/EntitySystem.h"
 
 // == RENDERER ==================================
 #include "JLHE/Renderer/Renderer.h"

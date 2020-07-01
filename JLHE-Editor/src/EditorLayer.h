@@ -23,6 +23,7 @@ namespace JLHE {
 		Ref<Texture2D> m_CheckerboardTexture;
 		Ref<SubTexture2D> m_SubTexture;
 		Ref<Framebuffer> m_Framebuffer;
+		EntitySystem m_EntitySystem;
 
 		bool m_ViewportFocused = false;
 		bool m_ViewportHovered = false;

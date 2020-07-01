@@ -1407,6 +1407,8 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\JLHE\Core\Entity.h" />
+    <ClInclude Include="src\JLHE\Core\EntitySystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Core\Application.cpp">
@@ -1499,5 +1501,7 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\JLHE\Core\Entity.cpp" />
+    <ClCompile Include="src\JLHE\Core\EntitySystem.cpp" />
   </ItemGroup>
 </Project>

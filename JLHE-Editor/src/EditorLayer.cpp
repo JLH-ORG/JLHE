@@ -17,6 +17,11 @@ namespace JLHE {
 		m_CheckerboardTexture = JLHE::Texture2D::Create("Assets/Textures/Checkerboard.png");
 		m_SubTexture = JLHE::SubTexture2D::CreateFromCoords(m_CheckerboardTexture, { 0, 0 }, { 8, 8 }, { 1, 2 });
 
+		Ref<Texture2D> tick = Texture2D::Create("Assets/Textures/tick.png");
+		Ref<SubTexture2D> subT = SubTexture2D::CreateFromCoords(tick, { 0, 0 }, { 395, 512 }, { 1, 1 });
+		Entity e(subT, { 0, 0, 1 }, { 1, 1 }, 0);
+		m_EntitySystem.AddEntity(e);
+
 		JLHE::FramebufferSpecification fbSpec;
 		fbSpec.Height = 720;
 		fbSpec.Width = 1280;
@@ -57,6 +62,7 @@ namespace JLHE {
 			}
 
 			JLHE::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.7f }, { 1, 2 }, m_SubTexture);
+			m_EntitySystem.OnRender();
 			JLHE::Renderer2D::EndScene();
 			m_Framebuffer->Unbind();
 		}

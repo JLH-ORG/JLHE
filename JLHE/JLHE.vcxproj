@@ -143,6 +143,8 @@
     <ClInclude Include="src\JLHE.h" />
     <ClInclude Include="src\JLHE\Core\Application.h" />
     <ClInclude Include="src\JLHE\Core\Core.h" />
+    <ClInclude Include="src\JLHE\Core\Entity.h" />
+    <ClInclude Include="src\JLHE\Core\EntitySystem.h" />
     <ClInclude Include="src\JLHE\Core\EntryPoint.h" />
     <ClInclude Include="src\JLHE\Core\Input.h" />
     <ClInclude Include="src\JLHE\Core\KeyCodes.h" />
@@ -593,6 +595,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JLHE\Core\Application.cpp" />
+    <ClCompile Include="src\JLHE\Core\Entity.cpp" />
+    <ClCompile Include="src\JLHE\Core\EntitySystem.cpp" />
     <ClCompile Include="src\JLHE\Core\Layer.cpp" />
     <ClCompile Include="src\JLHE\Core\LayerStack.cpp" />
     <ClCompile Include="src\JLHE\Core\Log.cpp" />
