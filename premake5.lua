@@ -81,7 +81,7 @@ project "JLHE"
 		symbols "on"
 
 	filter "configurations:Release"
-		defines "JHLE_RELEASE"
+		defines "JLHE_RELEASE"
 		runtime "Release"
 		optimize "on"
 
